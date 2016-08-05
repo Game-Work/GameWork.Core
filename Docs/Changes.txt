@@ -1,0 +1,7 @@
+Revisit use of DI. May not be necessary in all places.
+Rename "View" to "Interface" in GameWork.
+Rename View to GUI in Unity implementation.
+
+Find better way to pass objects to views
+
+use factories and interfaces to create views so that they don't need the extra lightweight controller layer - so no view controller, the game controller will control the interface directly.

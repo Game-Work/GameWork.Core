@@ -1,0 +1,6 @@
+Controller: Encapsulates functionality. 
+It may have an update called but it is not a general use class. 
+Example: GameStateController controls the game states. It only has it's Tick method called by the encalsupating class with a callback when complete.
+
+Manager: Is used in many places and can be seen as a utility. It is a dumb container.
+Example: LocalizationManager is referenced in many places as many UI components need to map default text to localized text during runtime.
