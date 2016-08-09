@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using GameWork.Interfaces.Models;
+using GameWork.Common.Models.Interfaces;
 
 namespace GameWork.Localization
 {

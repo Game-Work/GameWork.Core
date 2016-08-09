@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using GameWork.Interfaces.Controllers;
+using GameWork.Common.Controllers.Interfaces;
 
 namespace GameWork.GameStates
 {
@@ -45,11 +45,11 @@ namespace GameWork.GameStates
             _states[_activeState].Tick(deltaTime);
         }
 
-        public void Activate()
+        public void Initialize()
         {
         }
 
-        public void Deactivate()
+        public void Terminate()
         {
         }
     }
