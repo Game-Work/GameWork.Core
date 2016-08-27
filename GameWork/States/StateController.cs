@@ -9,19 +9,25 @@ namespace GameWork.States
 		private readonly Dictionary<string, IState> _states = new Dictionary<string, IState>();
 		private IState _currentState;
 
-		public StateController(string startStateName, params IState[] states)
+		public StateController(params IState[] states)
 		{
 			foreach(var state in states)
 			{
 				AddState(state);
 			}
-
-			SetState(startStateName);
 		}
 
 		public void Tick(float deltaTime)
 		{
 			_currentState.Tick(deltaTime);
+		}
+
+		public void SetState(string name)
+		{
+			CheckExists(name);
+
+			_currentState = _states[name];
+			_currentState.Enter();
 		}
 
 		private void AddState(IState state)
@@ -30,14 +36,6 @@ namespace GameWork.States
 
 			_states[state.Name] = state;
 			state.ChangeState += ChangeState;
-		}
-
-		private void SetState(string name)
-		{
-			CheckExists(name);
-
-			_currentState = _states[name];
-			_currentState.Enter();
 		}
 
 		private void ChangeState(string name)
