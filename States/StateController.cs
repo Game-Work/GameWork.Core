@@ -4,52 +4,61 @@ using GameWork.States.Interfaces;
 
 namespace GameWork.States
 {
-    public class StateController : IController
-    {
-        private readonly Dictionary<string, IState> _states  = new Dictionary<string, IState>();
-        private string _activeState;
+	public class StateController : IController
+	{
+		private readonly Dictionary<string, IState> _states  = new Dictionary<string, IState>();
+		private string _activeState;
 
-        public StateController(params IState[] states)
-        {
-            foreach (var state in states)
-            {
-                _states.Add(state.Name, state);
-            }
-        }
+		public StateController(params IState[] states)
+		{
+			foreach (var state in states)
+			{
+				_states.Add(state.Name, state);
+				
+			}
+		}
 
-        public void SetState(string name)
-        {
-            var newState = _states[name];
-            _activeState = name;
-            newState.ChangeStateEvent += ChangeState;
-            newState.Enter();
-        }
+		public void SetState(string name)
+		{
+			var newState = _states[name];
+			_activeState = name;
+			newState.ChangeStateEvent += ChangeState;
+			newState.Enter();
+		}
 
-        public void ChangeState(string name)
-        {
-            var newState = _states[name];
-            var prevState = _states[_activeState];
+		public void ChangeState(string name)
+		{
+			var newState = _states[name];
+			var prevState = _states[_activeState];
 
-            _activeState = name;
+			_activeState = name;
 
-            prevState.ChangeStateEvent -= ChangeState;
-            newState.ChangeStateEvent += ChangeState;
+			prevState.ChangeStateEvent -= ChangeState;
+			newState.ChangeStateEvent += ChangeState;
 
-            prevState.Exit();
-            newState.Enter();
-        }
+			prevState.Exit();
+			newState.Enter();
+		}
 
-        public void Tick(float deltaTime)
-        {
-            _states[_activeState].Tick(deltaTime);
-        }
+		public void Tick(float deltaTime)
+		{
+			_states[_activeState].Tick(deltaTime);
+		}
 
-        public void Initialize()
-        {
-        }
+		public void Initialize()
+		{
+			foreach (var state in _states.Values)
+			{
+				state.Initialize();
+			}
+		}
 
-        public void Terminate()
-        {
-        }
-    }
+		public void Terminate()
+		{
+			foreach (var state in _states.Values)
+			{
+				state.Terminate();
+			}
+		}
+	}
 }

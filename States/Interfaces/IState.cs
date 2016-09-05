@@ -2,20 +2,24 @@
 
 namespace GameWork.States.Interfaces
 {
-    public interface IState
-    {
-        string Name { get; }
+	public interface IState
+	{
+		string Name { get; }
 
-        event Action<string> ChangeStateEvent;
+		event Action<string> ChangeStateEvent;
 
-        void Enter();
+		void Enter();
 
-        void Exit();
+		void Exit();
 
-        void Tick(float deltaTime);
+		void Initialize();
 
-        void ChangeState(string toStateName);
+		void Terminate();
 
-        void NextState();
-    }
+		void Tick(float deltaTime);
+
+		void ChangeState(string toStateName);
+
+		void NextState();
+	}
 }

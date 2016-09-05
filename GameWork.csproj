@@ -52,6 +52,7 @@
     <Compile Include="Commands\CommandQueue.cs" />
     <Compile Include="Commands\Interfaces\ICommand.cs" />
     <Compile Include="Commands\Interfaces\ICommandQueue.cs" />
+    <Compile Include="Commands\NextStateCommand.cs" />
     <Compile Include="Debug\Interfaces\ILogger.cs" />
     <Compile Include="Extensions\IEnumerableExtensions.cs" />
     <Compile Include="Factories\ObjectWithModelFactory.cs" />
