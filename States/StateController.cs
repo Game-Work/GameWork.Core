@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using GameWork.Common.Controllers.Interfaces;
+﻿using System.Collections.Generic;
+using GameWork.Controllers.Interfaces;
+using GameWork.States.Interfaces;
 
-namespace GameWork.GameStates
+namespace GameWork.States
 {
-    public class GameStateController : ITickableController
+    public class StateController : IController
     {
-        private readonly Dictionary<string, GameState> _states  = new Dictionary<string, GameState>();
+        private readonly Dictionary<string, IState> _states  = new Dictionary<string, IState>();
         private string _activeState;
 
-        public GameStateController(params GameState[] states)
+        public StateController(params IState[] states)
         {
             foreach (var state in states)
             {
@@ -21,23 +21,22 @@ namespace GameWork.GameStates
         {
             var newState = _states[name];
             _activeState = name;
-            newState.ChangeStateEvent += OnChangeState;
-
-            newState.Enter(null);
+            newState.ChangeStateEvent += ChangeState;
+            newState.Enter();
         }
 
-        public void OnChangeState(string name)
+        public void ChangeState(string name)
         {
             var newState = _states[name];
             var prevState = _states[_activeState];
 
             _activeState = name;
 
-            prevState.ChangeStateEvent -= OnChangeState;
-            newState.ChangeStateEvent += OnChangeState;
+            prevState.ChangeStateEvent -= ChangeState;
+            newState.ChangeStateEvent += ChangeState;
 
-            prevState.Exit(newState);
-            newState.Enter(prevState);
+            prevState.Exit();
+            newState.Enter();
         }
 
         public void Tick(float deltaTime)

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using GameWork.Common.Models.Interfaces;
 using GameWork.Interfacing.Interfaces;
+using GameWork.Models.Interfaces;
 
 namespace GameWork.Interfacing.Factories
 {

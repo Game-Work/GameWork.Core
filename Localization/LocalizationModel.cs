@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
-using GameWork.Common.Models.Interfaces;
+using GameWork.Models.Interfaces;
 
 namespace GameWork.Localization
 {
-    public class LocalizationModel : IModel
+    public struct LocalizationModel : IModel
     {
         public string Id { get; set; }
+
+        public string Default { get; set; }
 
         public Dictionary<string, Dictionary<string, string>> Localizations { get; set; }
     }

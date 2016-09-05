@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using GameWork.Utilities;
 
-namespace GameWork.Common.Extensions
+namespace GameWork.Extensions
 {
     public static class EnumerableExtensions
     {

@@ -1,5 +1,4 @@
 Revisit use of DI. May not be necessary in all places.
-Rename "View" to "Interface" in GameWork.
 Rename View to GUI in Unity implementation.
 
 Find better way to pass objects to views

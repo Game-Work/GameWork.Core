@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
-using GameWork.Common.Debug.Interfaces;
+using GameWork.Debug.Interfaces;
 
 namespace GameWork.Utilities
 {

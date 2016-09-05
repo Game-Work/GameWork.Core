@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using GameWork.Common.Models.Interfaces;
+using GameWork.Models.Interfaces;
+using GameWork.Interfacing.Interfaces;
 
-namespace GameWork.Common.Factories
+namespace GameWork.Factories
 {
     public class ObjectWithModelFactory<TObject, TModel>
         where TModel : IModel
@@ -16,7 +17,8 @@ namespace GameWork.Common.Factories
 
         public virtual TObject Create(string modelId)
         {
-            var model = _models[modelId];
+            //var model = _models[modelId];
+            IInterfaceModel model = null;
             return (TObject) Activator.CreateInstance(typeof(TObject), model);
         }
     }

@@ -1,4 +1,4 @@
-﻿using GameWork.Common.Models;
+﻿using GameWork.Models;
 using GameWork.Interfacing.Interfaces;
 
 namespace GameWork.Interfacing.Controllers

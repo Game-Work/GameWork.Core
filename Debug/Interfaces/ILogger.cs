@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GameWork.Common.Debug.Interfaces
+namespace GameWork.Debug.Interfaces
 {
     public interface ILogger
     {

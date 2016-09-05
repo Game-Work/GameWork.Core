@@ -1,11 +1,10 @@
 ﻿using System;
-using GameWork.Common.Controllers.Interfaces;
-using GameWork.Common.Models;
+using GameWork.Models;
 using GameWork.Interfacing.Interfaces;
 
 namespace GameWork.Interfacing.Controllers
 {
-    public class TimedController : IInterfaceController, ITickableController
+    public class TimedController : IInterfaceController
     {
         private readonly DurationModel _model;
         private readonly IInterface _interface;

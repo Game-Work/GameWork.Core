@@ -1,4 +1,4 @@
-﻿using GameWork.Common.Models;
+﻿using GameWork.Models;
 using GameWork.Interfacing.Interfaces;
 
 namespace GameWork.Interfacing.Controllers
@@ -30,9 +30,9 @@ namespace GameWork.Interfacing.Controllers
 
         public void Initialize()
         {
+            _interface.Initialize();
             _interface.SetOptions(_model.Options);
             _interface.SelectedOptionEvent += OnSelected;
-            _interface.Initialize();
         }
 
         public void Terminate()

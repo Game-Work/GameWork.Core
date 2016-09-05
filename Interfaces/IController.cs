@@ -1,4 +1,4 @@
-﻿namespace GameWork.Common.Controllers.Interfaces
+﻿namespace GameWork.Controllers.Interfaces
 {
     public interface IController
     {
