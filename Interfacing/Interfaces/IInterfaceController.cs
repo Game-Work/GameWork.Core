@@ -1,4 +1,4 @@
-﻿using GameWork.Controllers.Interfaces;
+﻿using GameWork.Interfaces;
 
 namespace GameWork.Interfacing.Interfaces
 {

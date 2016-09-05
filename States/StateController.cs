@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using GameWork.Controllers.Interfaces;
+using GameWork.Interfaces;
 using GameWork.States.Interfaces;
 
 namespace GameWork.States
