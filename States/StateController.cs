@@ -4,17 +4,17 @@ using GameWork.States.Interfaces;
 
 namespace GameWork.States
 {
-	public class StateController : IController
+	public class StateController<TState> : IController
+		where TState : IState
 	{
-		private readonly Dictionary<string, IState> _states  = new Dictionary<string, IState>();
-		private string _activeState;
+		protected readonly Dictionary<string, TState> _states  = new Dictionary<string, TState>();
+		protected string _activeState;
 
-		public StateController(params IState[] states)
+		public StateController(params TState[] states)
 		{
 			foreach (var state in states)
 			{
 				_states.Add(state.Name, state);
-				
 			}
 		}
 
