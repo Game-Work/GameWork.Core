@@ -20,7 +20,7 @@ namespace GameWork.Interfacing
 
 		public ICommand[] TakeAllCommands()
 		{
-			return TakeAllCommands();
+			return _commandQueue.TakeAllCommands();
 		}
 		
 		public abstract void Enter();
