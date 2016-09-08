@@ -19,9 +19,5 @@ namespace GameWork.States.Interfaces
 		void Tick(float deltaTime);
 
 		void ChangeState(string toStateName);
-
-		void NextState();
-
-		void PreviousState();
 	}
 }

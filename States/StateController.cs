@@ -8,7 +8,7 @@ namespace GameWork.States
 		where TState : IState
 	{
 		protected readonly Dictionary<string, TState> _states  = new Dictionary<string, TState>();
-		protected string _activeState;
+		protected string ActiveState;
 
 		public StateController(params TState[] states)
 		{
@@ -21,7 +21,7 @@ namespace GameWork.States
 		public void SetState(string name)
 		{
 			var newState = _states[name];
-			_activeState = name;
+			ActiveState = name;
 			newState.ChangeStateEvent += ChangeState;
 			newState.Enter();
 		}
@@ -29,9 +29,9 @@ namespace GameWork.States
 		public void ChangeState(string name)
 		{
 			var newState = _states[name];
-			var prevState = _states[_activeState];
+			var prevState = _states[ActiveState];
 
-			_activeState = name;
+			ActiveState = name;
 
 			prevState.ChangeStateEvent -= ChangeState;
 			newState.ChangeStateEvent += ChangeState;
@@ -42,7 +42,7 @@ namespace GameWork.States
 
 		public void Tick(float deltaTime)
 		{
-			_states[_activeState].Tick(deltaTime);
+			_states[ActiveState].Tick(deltaTime);
 		}
 
 		public void Initialize()
