@@ -6,7 +6,6 @@ namespace GameWork.IO
 	public class CSVReader
 	{
 		private readonly StreamReader _reader;
-		private bool _isDisposed = false;
 
 		public CSVReader(Stream stream)
 		{
