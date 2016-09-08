@@ -9,6 +9,11 @@ namespace GameWork.States
 		private readonly Dictionary<string, IState> _states = new Dictionary<string, IState>();
 		private IState _currentState;
 
+		public string CurrentStateName
+		{
+			get { return _currentState.Name; }
+		}
+
 		public StateController(params IState[] states)
 		{
 			foreach(var state in states)
