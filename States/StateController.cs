@@ -50,6 +50,7 @@ namespace GameWork.States
 
         public void Terminate()
         {
+            _states = null;
         }
     }
 }
