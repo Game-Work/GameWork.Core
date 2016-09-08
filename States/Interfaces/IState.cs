@@ -21,5 +21,7 @@ namespace GameWork.States.Interfaces
 		void ChangeState(string toStateName);
 
 		void NextState();
+
+		void PreviousState();
 	}
 }

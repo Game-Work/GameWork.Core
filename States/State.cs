@@ -20,6 +20,8 @@ namespace GameWork.States
 
 		public abstract void NextState();
 
+		public abstract void PreviousState();
+
 		public abstract void Tick(float deltaTime);
 
 		public virtual void Initialize()
