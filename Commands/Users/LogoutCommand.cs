@@ -1,7 +1,7 @@
 ﻿using GameWork.Commands.Actions.Interfaces;
 using GameWork.Commands.Interfaces;
 
-namespace GameWork.Commands
+namespace GameWork.Commands.Users
 {
     public class LogoutCommand : ICommand
     {

@@ -51,13 +51,15 @@
     <Compile Include="Audio\Interfaces\IAudioManager.cs" />
     <Compile Include="Commands\Actions\Interfaces\ILogin.cs" />
     <Compile Include="Commands\Actions\Interfaces\ILogout.cs" />
+    <Compile Include="Commands\Actions\Interfaces\IRegister.cs" />
     <Compile Include="Commands\CommandQueue.cs" />
     <Compile Include="Commands\Interfaces\ICommand.cs" />
     <Compile Include="Commands\Interfaces\ICommandQueue.cs" />
-    <Compile Include="Commands\LoginCommand.cs" />
-    <Compile Include="Commands\LogoutCommand.cs" />
+    <Compile Include="Commands\Users\LoginCommand.cs" />
+    <Compile Include="Commands\Users\LogoutCommand.cs" />
     <Compile Include="Commands\States\PreviousStateCommand.cs" />
     <Compile Include="Commands\States\NextStateCommand.cs" />
+    <Compile Include="Commands\Users\RegisterCommand.cs" />
     <Compile Include="Debug\Interfaces\ILogger.cs" />
     <Compile Include="Extensions\IEnumerableExtensions.cs" />
     <Compile Include="Factories\ObjectWithModelFactory.cs" />
