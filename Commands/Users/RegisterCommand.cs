@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using GameWork.Commands.Actions.Interfaces;
+﻿using GameWork.Commands.Actions.Interfaces;
 using GameWork.Commands.Interfaces;
 
 namespace GameWork.Commands.Users
 {
-    class RegisterCommand : ICommand
+    public struct RegisterCommand : ICommand
     {
         private readonly string _username;
         private readonly string _password;
