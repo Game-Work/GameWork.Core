@@ -5,11 +5,24 @@ using GameWork.Interfaces;
 
 namespace GameWork.States
 {
-	public class StateController<TState> : IInitializable, ITickable
+    public class StateController : StateController<IState>
+    {
+        public StateController(params IState[] states) : base(states)
+        {
+        }
+    }
+
+    public class StateController<TState> : IInitializable, ITickable
 		where TState : IState
 	{
 		protected readonly Dictionary<string, TState> States  = new Dictionary<string, TState>();
-		protected string ActiveState;
+
+        protected string ActiveState;
+
+	    public string CurrentStateName
+	    {
+	        get { return ActiveState; }
+	    }
         
         public StateController(params TState[] states)
 		{
