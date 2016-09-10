@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Interfaces\IIdModel.cs" />
     <Compile Include="Interfaces\IModel.cs" />
+    <Compile Include="Interfaces\IModelReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
