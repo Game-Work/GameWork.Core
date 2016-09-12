@@ -17,9 +17,7 @@ namespace GameWork.States
 		public abstract void Enter();
 
 		public abstract void Exit();
-
-		public abstract void Tick(float deltaTime);
-
+		
 		public virtual void Initialize()
 		{
 

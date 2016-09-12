@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using GameWork.States.Interfaces;
-using System;
 using GameWork.Interfaces;
 
 namespace GameWork.States
@@ -12,7 +11,7 @@ namespace GameWork.States
         }
     }
 
-    public class StateController<TState> : IInitializable, ITickable
+    public class StateController<TState> : IInitializable
 		where TState : IState
 	{
 		protected readonly Dictionary<string, TState> States  = new Dictionary<string, TState>();
@@ -53,12 +52,7 @@ namespace GameWork.States
 			prevState.Exit();
 			newState.Enter();
 		}
-
-		public void Tick(float deltaTime)
-		{
-			States[ActiveState].Tick(deltaTime);
-		}
-
+        
 		public void Initialize()
 		{
 			foreach (var state in States.Values)

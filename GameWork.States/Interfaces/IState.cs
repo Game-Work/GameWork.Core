@@ -3,7 +3,7 @@ using System;
 
 namespace GameWork.States.Interfaces
 {
-	public interface IState : IInitializable, ITickable, IEnterable
+	public interface IState : IInitializable, IEnterable
 	{
 		string Name { get; }
 
