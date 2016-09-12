@@ -39,6 +39,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
@@ -48,10 +49,12 @@
     <Compile Include="Accounts\Interfaces\ILoginAction.cs" />
     <Compile Include="Accounts\Interfaces\ILogoutAction.cs" />
     <Compile Include="Accounts\Interfaces\IRegisterAction.cs" />
+    <Compile Include="States\ChangeStateCommand.cs" />
     <Compile Include="CommandQueue.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\ICommandQueue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="States\Interfaces\IChangeStateAction.cs" />
     <Compile Include="States\Interfaces\INextStateAction.cs" />
     <Compile Include="States\Interfaces\IPreviousStateAction.cs" />
     <Compile Include="States\NextStateCommand.cs" />
