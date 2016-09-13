@@ -5,9 +5,9 @@ namespace GameWork.Commands.Accounts
 {
     public class LogoutCommand : ICommand<ILogoutAction>
     {
-        public void Execute(ILogoutAction parameter)
+        public void Execute(ILogoutAction implementor)
         {
-            parameter.Logout();
+            implementor.Logout();
         }
     }
 }

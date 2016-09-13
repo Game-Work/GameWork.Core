@@ -3,7 +3,7 @@ using GameWork.Commands.States.Interfaces;
 
 namespace GameWork.Commands.States
 {
-    public class ChangeStateCommand : ICommand<IChangeStateAction>
+    public struct ChangeStateCommand : ICommand<IChangeStateAction>
     {
         private readonly string _toStateName;
 
@@ -12,9 +12,9 @@ namespace GameWork.Commands.States
             _toStateName = toStateName;
         }
 
-        public void Execute(IChangeStateAction parameter)
+        public void Execute(IChangeStateAction implementor)
         {
-            parameter.ChangeState(_toStateName);
+            implementor.ChangeState(_toStateName);
         }
     }
 }

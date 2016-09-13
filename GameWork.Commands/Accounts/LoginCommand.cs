@@ -3,7 +3,7 @@ using GameWork.Commands.Interfaces;
 
 namespace GameWork.Commands.Accounts
 {
-    public class LoginCommand : ICommand<ILoginAction>
+    public struct LoginCommand : ICommand<ILoginAction>
     {
         private readonly string _username;
         private readonly string _password;
@@ -14,9 +14,9 @@ namespace GameWork.Commands.Accounts
             _password = password;
         }
 
-        public void Execute(ILoginAction parameter)
+        public void Execute(ILoginAction implementor)
         {
-            parameter.Login(_username, _password);
+            implementor.Login(_username, _password);
         }
     }
 }

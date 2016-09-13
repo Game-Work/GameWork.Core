@@ -1,6 +1,8 @@
-﻿namespace GameWork.Commands.States.Interfaces
+﻿using GameWork.Commands.Interfaces;
+
+namespace GameWork.Commands.States.Interfaces
 {
-    public interface INextStateAction
+    public interface INextStateAction : ICommandAction
     {
         void NextState();
     }

@@ -1,6 +1,8 @@
-﻿namespace GameWork.Commands.Accounts.Interfaces
+﻿using GameWork.Commands.Interfaces;
+
+namespace GameWork.Commands.Accounts.Interfaces
 {
-    public interface ILoginAction
+    public interface ILoginAction : ICommandAction
     {
         void Login(string username, string password);
     }

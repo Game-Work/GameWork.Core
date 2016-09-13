@@ -49,6 +49,7 @@
     <Compile Include="Accounts\Interfaces\ILoginAction.cs" />
     <Compile Include="Accounts\Interfaces\ILogoutAction.cs" />
     <Compile Include="Accounts\Interfaces\IRegisterAction.cs" />
+    <Compile Include="Interfaces\ICommandAction.cs" />
     <Compile Include="States\ChangeStateCommand.cs" />
     <Compile Include="CommandQueue.cs" />
     <Compile Include="Interfaces\ICommand.cs" />

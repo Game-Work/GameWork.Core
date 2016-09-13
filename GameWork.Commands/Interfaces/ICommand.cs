@@ -4,8 +4,9 @@
     {
     }
 
-    public interface ICommand<TCommandParameter> : ICommand
+    public interface ICommand<TCommandAction> : ICommand
+        where TCommandAction : ICommandAction
     {
-        void Execute(TCommandParameter parameter);
+        void Execute(TCommandAction parameter);
     }
 }
