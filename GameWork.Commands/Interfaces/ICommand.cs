@@ -1,7 +1,12 @@
 ﻿namespace GameWork.Commands.Interfaces
 {
-    public interface ICommand
+    public interface ICommand : ICommand<ICommandAction>
     {
-        void Execute(object parameter);
+    }
+        
+    public interface ICommand<TCommandAction>
+        where TCommandAction : ICommandAction
+    {
+        void Execute(TCommandAction parameter);
     }
 }

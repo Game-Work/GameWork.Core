@@ -3,12 +3,11 @@ using GameWork.Commands.States.Interfaces;
 
 namespace GameWork.Commands.States
 {
-    public struct NextStateCommand : ICommand
+    public struct NextStateCommand : ICommand<INextStateAction>
     {
-        public void Execute(object parameter)
+        public void Execute(INextStateAction implementor)
         {
-            var castParameter = (INextStateAction)parameter;
-            castParameter.NextState();
+            implementor.NextState();
         }
     }
 }
