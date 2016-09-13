@@ -3,12 +3,11 @@ using GameWork.Commands.Interfaces;
 
 namespace GameWork.Commands.Accounts
 {
-    public class LogoutCommand : ICommand
+    public class LogoutCommand : ICommand<ILogoutAction>
     {
-        public void Execute(object parameter)
+        public void Execute(ILogoutAction parameter)
         {
-            var castParameter = (ILogoutAction)parameter;
-            castParameter.Logout();
+            parameter.Logout();
         }
     }
 }

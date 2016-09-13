@@ -2,6 +2,10 @@
 {
     public interface ICommand
     {
-        void Execute(object parameter);
+    }
+
+    public interface ICommand<TCommandParameter> : ICommand
+    {
+        void Execute(TCommandParameter parameter);
     }
 }

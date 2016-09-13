@@ -1,9 +1,10 @@
 ﻿using System;
+using GameWork.Commands.States.Interfaces;
 using GameWork.States.Interfaces;
 
 namespace GameWork.States
 {
-	public abstract class State : IState
+	public abstract class State : IState, IChangeStateAction
 	{
 		public abstract string Name { get; }
 
