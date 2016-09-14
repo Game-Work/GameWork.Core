@@ -7,6 +7,8 @@ namespace GameWork.States.Interfaces
 	{
 		string Name { get; }
 
+		bool IsActive { get; }
+
 		event Action<string> ChangeStateEvent;
 
 		void ChangeState(string toStateName);

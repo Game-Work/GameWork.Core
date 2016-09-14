@@ -39,6 +39,22 @@ namespace GameWork.States
 			newState.Enter();
 		}
 
+        public void ExitState()
+        {
+            if (!string.IsNullOrEmpty(ActiveState))
+            {
+                var currentState = States[ActiveState];
+
+                if (currentState.IsActive)
+                {
+                    ActiveState = string.Empty;
+
+                    currentState.ChangeStateEvent -= ChangeState;
+                    currentState.Exit();
+                }
+            }
+        }
+
 		public void ChangeState(string name)
 		{
 			var newState = States[name];
