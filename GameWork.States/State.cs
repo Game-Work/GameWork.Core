@@ -8,6 +8,8 @@ namespace GameWork.States
 	{
 		public abstract string Name { get; }
 
+		public bool IsActive { get; private set; }
+
 		public event Action<string> ChangeStateEvent;
 
 		public void ChangeState(string toStateName)
@@ -15,9 +17,15 @@ namespace GameWork.States
 			ChangeStateEvent(toStateName);
 		}
 
-		public abstract void Enter();
+		public virtual void Enter()
+		{
+			IsActive = true;
+		}
 
-		public abstract void Exit();
+		public virtual void Exit()
+		{
+			IsActive = false;
+		}
 		
 		public virtual void Initialize()
 		{
