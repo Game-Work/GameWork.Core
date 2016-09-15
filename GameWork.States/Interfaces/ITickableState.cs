@@ -4,6 +4,5 @@ namespace GameWork.States.Interfaces
 {
     public interface ITickableState : IState, ITickable
     {
-        void Tick(float deltaTime);
     }
 }
