@@ -39,12 +39,16 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IInterface.cs" />
+    <Compile Include="Interfaces\IStateInterface.cs" />
+    <Compile Include="Interfaces\ITickableStateInterface.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StateInterface.cs" />
+    <Compile Include="TickableStateInterface.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameWork.Commands\GameWork.Commands.csproj">

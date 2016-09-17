@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using GameWork.Commands;
 using GameWork.Commands.Interfaces;
-using GameWork.Interfaces;
+using GameWork.Interfacing.Interfaces;
 
 namespace GameWork.Interfacing
 {
-	public abstract class StateInterface : ICommandInterface, IInitializable, IEnterable
-	{
+	public abstract class StateInterface : IStateInterface
+    {
 		private readonly CommandQueue _commandQueue = new CommandQueue();
 		
 		public bool HasCommands
