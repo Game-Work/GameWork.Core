@@ -1,6 +1,6 @@
 ﻿namespace GameWork.Commands.Interfaces
 {
-    public interface ICommandInterface
+    public interface ICommandQueue
     {
         bool HasCommands { get; }
 

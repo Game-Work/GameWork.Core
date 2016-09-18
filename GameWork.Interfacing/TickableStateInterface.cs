@@ -5,7 +5,7 @@ using GameWork.Interfacing.Interfaces;
 
 namespace GameWork.Interfacing
 {
-    public abstract class TickableStateInterface : StateInterface, ITickableStateInterface
+    public abstract class TickableStateQueue : StateQueue, ITickableStateQueue
     {
         public abstract void Tick(float deltaTime);
     }

@@ -2,7 +2,7 @@
 
 namespace GameWork.Interfacing.Interfaces
 {
-    public interface ITickableStateInterface : IStateInterface, ITickable
+    public interface ITickableStateQueue : IStateQueue, ITickable
     {
     }
 }

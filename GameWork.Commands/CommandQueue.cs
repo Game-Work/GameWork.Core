@@ -4,7 +4,7 @@ using GameWork.Commands.Interfaces;
 
 namespace GameWork.Commands
 {
-    public class CommandQueue : ICommandInterface
+    public class CommandQueue : ICommandQueue
     {
         private readonly List<ICommand> _commands = new List<ICommand>();
 
