@@ -5,7 +5,7 @@ using GameWork.Interfacing.Interfaces;
 
 namespace GameWork.Interfacing
 {
-	public abstract class StateQueue : IStateQueue
+	public abstract class StateInterface : IStateInterface
     {
 		private readonly CommandQueue _commandQueue = new CommandQueue();
 		
