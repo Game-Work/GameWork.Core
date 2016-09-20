@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
-using GameWork.States.Interfaces;
+using GameWork.Commands.States.Interfaces;
 using GameWork.Interfaces;
+using GameWork.States.Interfaces;
 
-namespace GameWork.States
+namespace GameWork.States.Controllers
 {
     public class StateController : StateController<IState>
     {
@@ -11,7 +12,7 @@ namespace GameWork.States
         }
     }
 
-    public class StateController<TState> : IInitializable
+    public class StateController<TState> : IInitializable, IChangeStateAction
 		where TState : IState
 	{
 		protected readonly Dictionary<string, TState> States  = new Dictionary<string, TState>();
@@ -31,25 +32,21 @@ namespace GameWork.States
 			}
 		}
 
-		public void SetState(string name)
-		{
-			var newState = States[name];
-			ActiveState = name;
-			newState.ChangeStateEvent += ChangeState;
-			newState.Enter();
-		}
-
 		public void ChangeState(string name)
 		{
 			var newState = States[name];
-			var prevState = States[ActiveState];
+
+			if(ActiveState != null)
+			{ 
+				var prevState = States[ActiveState];
+				
+				prevState.ChangeStateEvent -= ChangeState;
+				prevState.Exit();
+			}
 
 			ActiveState = name;
 
-			prevState.ChangeStateEvent -= ChangeState;
 			newState.ChangeStateEvent += ChangeState;
-
-			prevState.Exit();
 			newState.Enter();
 		}
         

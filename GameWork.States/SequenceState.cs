@@ -1,8 +1,8 @@
-﻿using GameWork.Commands.States.Interfaces;
+﻿using GameWork.States.Interfaces;
 
 namespace GameWork.States
 {
-    public abstract class SequenceState : State, INextStateAction, IPreviousStateAction
+    public abstract class SequenceState : State, ISequenceState
     {
         public abstract void NextState();
 

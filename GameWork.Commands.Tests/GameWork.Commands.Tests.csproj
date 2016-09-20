@@ -30,24 +30,42 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
+    <Reference Include="nunit.framework, Version=3.4.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.4.1\lib\net35\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommandResolverTests.cs" />
+    <Compile Include="AccountCommandResolverTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StateCommandResolverTests.cs" />
     <Compile Include="TestObjects\TestAccountContoller.cs" />
     <Compile Include="TestObjects\TestAccountCommandResolver.cs" />
+    <Compile Include="TestObjects\TestStateCommandResolver.cs" />
+    <Compile Include="TestObjects\TestStateOne.cs" />
+    <Compile Include="TestObjects\TestStateThree.cs" />
+    <Compile Include="TestObjects\TestStateTwo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameWork.Commands\GameWork.Commands.csproj">
       <Project>{7ADF8CD4-CFCB-4E35-ABF7-E761497EAA11}</Project>
       <Name>GameWork.Commands</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GameWork.Interfaces\GameWork.Interfaces.csproj">
+      <Project>{B5F3B28A-10BF-4193-920A-3F8AA6817799}</Project>
+      <Name>GameWork.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GameWork.States\GameWork.States.csproj">
+      <Project>{D9ABF6B3-C495-4A39-B234-FCAB5EC9DB30}</Project>
+      <Name>GameWork.States</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

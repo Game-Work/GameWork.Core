@@ -1,7 +1,7 @@
-﻿using GameWork.States.Interfaces;
-using GameWork.Interfaces;
+﻿using GameWork.Interfaces;
+using GameWork.States.Interfaces;
 
-namespace GameWork.States
+namespace GameWork.States.Controllers
 {
     public class TickableStateController : TickableStateController<ITickableState>
     {

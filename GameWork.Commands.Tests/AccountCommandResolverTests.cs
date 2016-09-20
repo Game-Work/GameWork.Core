@@ -1,9 +1,10 @@
 ﻿using GameWork.Commands.Accounts;
 using GameWork.Commands.Tests.TestObjects;
+using NUnit.Framework;
 
 namespace GameWork.Commands.Tests
 {
-    public class CommandResolverTests
+    public class AccountCommandResolverTests
     {
 		private const string Username = "testUser";
 		private const string Password = "testPassword";
@@ -11,39 +12,42 @@ namespace GameWork.Commands.Tests
 		private readonly TestAccountContoller _accountContoller = new TestAccountContoller(Username, Password);
 	    private readonly TestAccountCommandResolver _commandResolver;
 
-	    public CommandResolverTests()
+	    public AccountCommandResolverTests()
 	    {
 		    _commandResolver = new TestAccountCommandResolver(_accountContoller);
 	    }
 
+		[Test]
 		public void TestRegister()
 		{
-			//Assert.False(_accountContoller.IsRegistered);
+			Assert.False(_accountContoller.IsRegistered);
 
 			var command = new RegisterCommand(Username, Password);
 			_commandResolver.ProcessCommand(command);
 
-			//Assert.True(_accountContoller.IsRegistered);
+			Assert.True(_accountContoller.IsRegistered);
 		}
 
+		[Test]
 		public void TestLogin()
 		{
-			//Assert.False(_accountContoller.IsLoggedIn);
+			Assert.False(_accountContoller.IsLoggedIn);
 
 			var command = new LoginCommand(Username, Password);
 			_commandResolver.ProcessCommand(command);
 
-			//Assert.True(_accountContoller.IsLoggedIn);
+			Assert.True(_accountContoller.IsLoggedIn);
 		}
 
+		[Test]
 		public void TestLogout()
 		{
-			//Assert.False(_accountContoller.IsLoggedOut);
+			Assert.False(_accountContoller.IsLoggedOut);
 
 			var command = new LogoutCommand();
 			_commandResolver.ProcessCommand(command);
 
-			//Assert.True(_accountContoller.IsLoggedOut);
+			Assert.True(_accountContoller.IsLoggedOut);
 		}
 	}
 }
