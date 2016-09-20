@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7ADF8CD4-CFCB-4E35-ABF7-E761497EAA11}</ProjectGuid>
+    <ProjectGuid>{B0293DF0-31A0-442C-B0F3-21F94C884FE0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GameWork.Commands</RootNamespace>
-    <AssemblyName>GameWork.Commands</AssemblyName>
+    <RootNamespace>GameWork.Commands.Tests</RootNamespace>
+    <AssemblyName>GameWork.Commands.Tests</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -29,39 +29,25 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'UnityEngine Debug|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>..\..\Assets\Plugins\GameWork\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Accounts\LoginCommand.cs" />
-    <Compile Include="Accounts\LogoutCommand.cs" />
-    <Compile Include="Accounts\RegisterCommand.cs" />
-    <Compile Include="Accounts\Interfaces\ILoginAction.cs" />
-    <Compile Include="Accounts\Interfaces\ILogoutAction.cs" />
-    <Compile Include="Accounts\Interfaces\IRegisterAction.cs" />
-    <Compile Include="CommandResolver.cs" />
-    <Compile Include="Interfaces\ICommandAction.cs" />
-    <Compile Include="Interfaces\ICommandResolver.cs" />
-    <Compile Include="States\ChangeStateCommand.cs" />
-    <Compile Include="CommandQueue.cs" />
-    <Compile Include="Interfaces\ICommand.cs" />
-    <Compile Include="Interfaces\ICommandQueue.cs" />
+    <Compile Include="CommandResolverTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="States\Interfaces\IChangeStateAction.cs" />
-    <Compile Include="States\Interfaces\INextStateAction.cs" />
-    <Compile Include="States\Interfaces\IPreviousStateAction.cs" />
-    <Compile Include="States\NextStateCommand.cs" />
-    <Compile Include="States\PreviousStateCommand.cs" />
+    <Compile Include="TestObjects\TestAccountContoller.cs" />
+    <Compile Include="TestObjects\TestAccountCommandResolver.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GameWork.Commands\GameWork.Commands.csproj">
+      <Project>{7ADF8CD4-CFCB-4E35-ABF7-E761497EAA11}</Project>
+      <Name>GameWork.Commands</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

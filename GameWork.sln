@@ -29,6 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameWork.Factories", "GameW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameWork.Models", "GameWork.Models\GameWork.Models.csproj", "{D61DC2F7-EB1E-4468-B53F-803B4C873217}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9735F03B-43CA-4C1A-BFF4-D234CA8A80F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameWork.Commands.Tests", "GameWork.Commands.Tests\GameWork.Commands.Tests.csproj", "{B0293DF0-31A0-442C-B0F3-21F94C884FE0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -114,8 +118,17 @@ Global
 		{D61DC2F7-EB1E-4468-B53F-803B4C873217}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D61DC2F7-EB1E-4468-B53F-803B4C873217}.UnityEngine Debug|Any CPU.ActiveCfg = UnityEngine Debug|Any CPU
 		{D61DC2F7-EB1E-4468-B53F-803B4C873217}.UnityEngine Debug|Any CPU.Build.0 = UnityEngine Debug|Any CPU
+		{B0293DF0-31A0-442C-B0F3-21F94C884FE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0293DF0-31A0-442C-B0F3-21F94C884FE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0293DF0-31A0-442C-B0F3-21F94C884FE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0293DF0-31A0-442C-B0F3-21F94C884FE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0293DF0-31A0-442C-B0F3-21F94C884FE0}.UnityEngine Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0293DF0-31A0-442C-B0F3-21F94C884FE0}.UnityEngine Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B0293DF0-31A0-442C-B0F3-21F94C884FE0} = {9735F03B-43CA-4C1A-BFF4-D234CA8A80F2}
 	EndGlobalSection
 EndGlobal
