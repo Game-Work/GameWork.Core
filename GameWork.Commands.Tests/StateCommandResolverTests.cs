@@ -5,6 +5,7 @@ using NUnit.Framework;
 
 namespace GameWork.Commands.Tests
 {
+	[TestFixture]
 	public class StateCommandResolverTests
 	{
 		private readonly SequenceStateController _stateController; 

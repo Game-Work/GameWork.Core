@@ -4,6 +4,7 @@ using NUnit.Framework;
 
 namespace GameWork.Commands.Tests
 {
+	[TestFixture]
     public class AccountCommandResolverTests
     {
 		private const string Username = "testUser";
