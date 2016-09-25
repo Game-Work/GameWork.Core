@@ -19,7 +19,7 @@ namespace GameWork.Commands.Tests
 	    }
 
 		[Test]
-		public void TestRegister()
+		public void Register()
 		{
 			Assert.False(_accountContoller.IsRegistered);
 
@@ -30,7 +30,7 @@ namespace GameWork.Commands.Tests
 		}
 
 		[Test]
-		public void TestLogin()
+		public void Login()
 		{
 			Assert.False(_accountContoller.IsLoggedIn);
 
@@ -41,7 +41,7 @@ namespace GameWork.Commands.Tests
 		}
 
 		[Test]
-		public void TestLogout()
+		public void Logout()
 		{
 			Assert.False(_accountContoller.IsLoggedOut);
 

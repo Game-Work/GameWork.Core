@@ -1,11 +1,16 @@
 ﻿namespace GameWork.Commands.Interfaces
 {
-    public interface ICommandQueue
-    {
-        bool HasCommands { get; }
+	public interface ICommandQueue : ICommandQueue<ICommand>
+	{
+	}
 
-        ICommand TakeFirstCommand();
+	public interface ICommandQueue<TCommand>
+		where TCommand : ICommand
+	{
+		bool HasCommands { get; }
 
-        ICommand[] TakeAllCommands();
-    }
+		TCommand TakeFirstCommand();
+
+		TCommand[] TakeAllCommands();
+	}
 }

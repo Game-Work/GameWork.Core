@@ -7,6 +7,6 @@
     public interface ICommand<TCommandAction> : ICommand
         where TCommandAction : ICommandAction
     {
-        void Execute(TCommandAction parameter);
+        void Execute(TCommandAction implementor);
     }
 }

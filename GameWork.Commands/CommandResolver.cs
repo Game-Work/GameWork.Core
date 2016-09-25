@@ -19,5 +19,10 @@ namespace GameWork.Commands
 				ProcessCommand(command);
 			}
 		}
+
+		public void ProcessCommandQueue(ICommandQueue<TCommand> commandQueue)
+		{
+			ProcessCommands(commandQueue.TakeAllCommands());
+		}
 	}
 }
