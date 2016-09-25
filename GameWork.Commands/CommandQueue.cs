@@ -4,33 +4,38 @@ using GameWork.Commands.Interfaces;
 
 namespace GameWork.Commands
 {
-    public class CommandQueue : ICommandQueue
-    {
-        private readonly List<ICommand> _commands = new List<ICommand>();
+	public class CommandQueue : CommandQueue<ICommand>
+	{
+	}
+
+	public class CommandQueue<TCommand> : ICommandQueue<TCommand>
+		where TCommand : ICommand
+	{
+        private readonly List<TCommand> _commands = new List<TCommand>();
 
         public bool HasCommands
         {
             get { return _commands.Any(); }
         }
 
-        public void AddCommand(ICommand command)
+        public void AddCommand(TCommand command)
         {
             _commands.Add(command);
         }
 
-        public void AddCommands(IEnumerable<ICommand> commands)
+        public void AddCommands(IEnumerable<TCommand> commands)
         {
             _commands.AddRange(commands);
         }
 
-        public ICommand TakeFirstCommand()
+        public TCommand TakeFirstCommand()
         {
             var command = _commands[0];
             _commands.RemoveAt(0);
             return command;
         }
 
-        public ICommand[] TakeAllCommands()
+        public TCommand[] TakeAllCommands()
         {
             var commands = _commands.ToArray();
             _commands.Clear();
