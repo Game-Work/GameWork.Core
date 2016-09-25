@@ -14,6 +14,8 @@ namespace GameWork.Commands
 
 		public void ProcessCommands(IEnumerable<TCommand> commands)
 		{
+			if(commands == null) return;
+
 			foreach (var command in commands)
 			{
 				ProcessCommand(command);
@@ -22,6 +24,8 @@ namespace GameWork.Commands
 
 		public void ProcessCommandQueue(ICommandQueue<TCommand> commandQueue)
 		{
+			if (commandQueue == null) return;
+
 			ProcessCommands(commandQueue.TakeAllCommands());
 		}
 	}
