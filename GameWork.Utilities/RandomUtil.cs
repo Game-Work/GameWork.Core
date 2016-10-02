@@ -10,5 +10,10 @@ namespace GameWork.Utilities
         {
             return Random.Next();
         }
+
+		public static float NextFloat()
+		{
+			return (float)Random.NextDouble();
+		}
     }
 }
