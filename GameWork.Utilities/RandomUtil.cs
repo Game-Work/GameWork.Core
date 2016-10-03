@@ -6,9 +6,14 @@ namespace GameWork.Utilities
     {
         private static readonly Random Random = new Random();
 
-        public static int Next()
+		public static int Next(int exclusiveMax)
+		{
+			return Random.Next(0, exclusiveMax);
+		}
+
+		public static int Next(int inclusiveMin, int exclusiveMax)
         {
-            return Random.Next();
+			return Random.Next(inclusiveMin, exclusiveMax);
         }
 
 		public static float NextFloat()
