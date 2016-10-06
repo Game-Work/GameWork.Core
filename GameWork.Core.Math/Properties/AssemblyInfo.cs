@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GameWork.Core")]
+[assembly: AssemblyTitle("GameWork.Core.Math")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("GameWork.Core")]
+[assembly: AssemblyProduct("GameWork.Core.Math")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("9efb97a0-b4d5-488e-a596-98b24a17ff4b")]
+[assembly: Guid("10a3459a-dcc3-4261-bb8d-517451ca0e9c")]
 
 // Version information for an assembly consists of the following four values:
 //
