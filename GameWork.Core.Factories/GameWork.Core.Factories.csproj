@@ -31,7 +31,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Unity Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>..\..\Assets\GameWork\</OutputPath>
+    <OutputPath>..\..\Assets\GameWork\Core\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,7 +47,7 @@
     <Compile Include="SingleModelFactory.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GameWork.Models\GameWork.Models.csproj">
+    <ProjectReference Include="..\GameWork.Core.Models\GameWork.Core.Models.csproj">
       <Project>{d61dc2f7-eb1e-4468-b53f-803b4c873217}</Project>
       <Name>GameWork.Models</Name>
     </ProjectReference>

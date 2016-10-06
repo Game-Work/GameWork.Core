@@ -31,7 +31,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Unity Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>..\..\Assets\GameWork\</OutputPath>
+    <OutputPath>..\..\Assets\GameWork\Core\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -54,19 +54,19 @@
     <Compile Include="MultiClipModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GameWork.Controllers\GameWork.Controllers.csproj">
+    <ProjectReference Include="..\GameWork.Core.Controllers\GameWork.Core.Controllers.csproj">
       <Project>{5DEDBE97-71CD-42AC-9819-B5C1F99B459A}</Project>
       <Name>GameWork.Controllers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GameWork.Interfaces\GameWork.Interfaces.csproj">
+    <ProjectReference Include="..\GameWork.Core.Interfaces\GameWork.Core.Interfaces.csproj">
       <Project>{B5F3B28A-10BF-4193-920A-3F8AA6817799}</Project>
       <Name>GameWork.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GameWork.Utilities\GameWork.Utilities.csproj">
+    <ProjectReference Include="..\GameWork.Core.Utilities\GameWork.Core.Utilities.csproj">
       <Project>{9F1396D6-07B0-4442-AB70-D90967C7AB74}</Project>
       <Name>GameWork.Utilities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GameWork.Models\GameWork.Models.csproj">
+    <ProjectReference Include="..\GameWork.Core.Models\GameWork.Core.Models.csproj">
       <Project>{D61DC2F7-EB1E-4468-B53F-803B4C873217}</Project>
       <Name>GameWork.Models</Name>
     </ProjectReference>
