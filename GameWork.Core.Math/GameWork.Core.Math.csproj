@@ -7,8 +7,8 @@
     <ProjectGuid>{10A3459A-DCC3-4261-BB8D-517451CA0E9C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GameWork.Math</RootNamespace>
-    <AssemblyName>GameWork.Math</AssemblyName>
+    <RootNamespace>GameWork.Core.Math</RootNamespace>
+    <AssemblyName>GameWork.Core.Math</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

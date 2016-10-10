@@ -7,8 +7,8 @@
     <ProjectGuid>{5DEDBE97-71CD-42AC-9819-B5C1F99B459A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GameWork.Controllers</RootNamespace>
-    <AssemblyName>GameWork.Controllers</AssemblyName>
+    <RootNamespace>GameWork.Core.Controllers</RootNamespace>
+    <AssemblyName>GameWork.Core.Controllers</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

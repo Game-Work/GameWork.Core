@@ -7,8 +7,8 @@
     <ProjectGuid>{115076F7-D8A0-422B-A70D-F0D0A6D2F64C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GameWork.Audio</RootNamespace>
-    <AssemblyName>GameWork.Audio</AssemblyName>
+    <RootNamespace>GameWork.Core.Audio</RootNamespace>
+    <AssemblyName>GameWork.Core.Audio</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

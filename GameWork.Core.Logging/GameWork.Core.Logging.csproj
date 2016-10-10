@@ -7,8 +7,8 @@
     <ProjectGuid>{FB406B0E-AED7-4482-9866-B64C7A64BB6C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GameWork.Logging</RootNamespace>
-    <AssemblyName>GameWork.Logging</AssemblyName>
+    <RootNamespace>GameWork.Core.Logging</RootNamespace>
+    <AssemblyName>GameWork.Core.Logging</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

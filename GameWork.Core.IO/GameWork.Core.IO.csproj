@@ -7,8 +7,8 @@
     <ProjectGuid>{1C2C7CF3-79D3-40AC-B908-EA4DBF5D9AC3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GameWork.IO</RootNamespace>
-    <AssemblyName>GameWork.IO</AssemblyName>
+    <RootNamespace>GameWork.Core.IO</RootNamespace>
+    <AssemblyName>GameWork.Core.IO</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

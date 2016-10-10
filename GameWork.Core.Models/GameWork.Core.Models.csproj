@@ -7,8 +7,8 @@
     <ProjectGuid>{D61DC2F7-EB1E-4468-B53F-803B4C873217}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GameWork.Models</RootNamespace>
-    <AssemblyName>GameWork.Models</AssemblyName>
+    <RootNamespace>GameWork.Core.Models</RootNamespace>
+    <AssemblyName>GameWork.Core.Models</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

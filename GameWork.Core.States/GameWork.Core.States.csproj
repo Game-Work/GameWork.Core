@@ -7,8 +7,8 @@
     <ProjectGuid>{D9ABF6B3-C495-4A39-B234-FCAB5EC9DB30}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GameWork.States</RootNamespace>
-    <AssemblyName>GameWork.States</AssemblyName>
+    <RootNamespace>GameWork.Core.States</RootNamespace>
+    <AssemblyName>GameWork.Core.States</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

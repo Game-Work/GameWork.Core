@@ -7,8 +7,8 @@
     <ProjectGuid>{82CC29E6-A9AE-4621-8D25-1DEC3D9F3E7C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GameWork.Localization</RootNamespace>
-    <AssemblyName>GameWork.Localization</AssemblyName>
+    <RootNamespace>GameWork.Core.Localization</RootNamespace>
+    <AssemblyName>GameWork.Core.Localization</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -7,8 +7,8 @@
     <ProjectGuid>{B5F3B28A-10BF-4193-920A-3F8AA6817799}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GameWork.Interfaces</RootNamespace>
-    <AssemblyName>GameWork.Interfaces</AssemblyName>
+    <RootNamespace>GameWork.Core.Interfaces</RootNamespace>
+    <AssemblyName>GameWork.Core.Interfaces</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
