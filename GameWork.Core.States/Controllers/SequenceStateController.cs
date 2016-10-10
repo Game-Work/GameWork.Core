@@ -19,12 +19,12 @@ namespace GameWork.Core.States.Controllers
 
 		public void NextState()
 		{
-			States[CurrentStateName].NextState();
+			States[ActiveState].NextState();
 		}
 
 		public void PreviousState()
 		{
-			States[CurrentStateName].PreviousState();
+			States[ActiveState].PreviousState();
 		}
 	}
 }
