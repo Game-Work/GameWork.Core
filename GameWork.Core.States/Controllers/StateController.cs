@@ -17,12 +17,7 @@ namespace GameWork.Core.States.Controllers
 	{
 		protected readonly Dictionary<string, TState> States  = new Dictionary<string, TState>();
 
-        protected string ActiveState;
-
-	    public string CurrentStateName
-	    {
-	        get { return ActiveState; }
-	    }
+        public string ActiveState { get; protected set; }
         
         public StateController(params TState[] states)
 		{
@@ -50,7 +45,7 @@ namespace GameWork.Core.States.Controllers
 			newState.Enter();
 		}
         
-		public void Initialize()
+        public void Initialize()
 		{
 			foreach (var state in States.Values)
 			{
@@ -60,6 +55,11 @@ namespace GameWork.Core.States.Controllers
 
 		public void Terminate()
 		{
+		    if (States.ContainsKey(ActiveState))
+		    {
+                States[ActiveState].Exit();
+            }
+
 			foreach (var state in States.Values)
 			{
 				state.Terminate();
