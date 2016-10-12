@@ -27,12 +27,12 @@ namespace GameWork.Core.Commands.Tests
 		public void NextState(string fromStateName, string toStateName)
 		{
 			_stateController.ChangeState(fromStateName);
-			Assert.That(_stateController.CurrentStateName == fromStateName);
+			Assert.That(_stateController.ActiveState == fromStateName);
 
 			var command = new NextStateCommand();
 			_commandResolver.ProcessCommand(command);
 
-			Assert.That(_stateController.CurrentStateName == toStateName);
+			Assert.That(_stateController.ActiveState == toStateName);
 		}
 
 		[TestCase("One", "One")]
@@ -41,12 +41,12 @@ namespace GameWork.Core.Commands.Tests
 		public void PreviousState(string fromStateName, string toStateName)
 		{
 			_stateController.ChangeState(fromStateName);
-			Assert.That(_stateController.CurrentStateName == fromStateName);
+			Assert.That(_stateController.ActiveState == fromStateName);
 
 			var command = new PreviousStateCommand();
 			_commandResolver.ProcessCommand(command);
 
-			Assert.That(_stateController.CurrentStateName == toStateName);
+			Assert.That(_stateController.ActiveState == toStateName);
 		}
 
 		[TestCase("One")]
@@ -57,7 +57,7 @@ namespace GameWork.Core.Commands.Tests
 			var command = new ChangeStateCommand(toStateName);
 			_commandResolver.ProcessCommand(command);
 
-			Assert.That(_stateController.CurrentStateName == toStateName);
+			Assert.That(_stateController.ActiveState == toStateName);
 		}
 	}
 }

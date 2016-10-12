@@ -19,7 +19,10 @@ namespace GameWork.Core.States.Controllers
 
         public void Tick(float deltaTime)
         {
-            States[ActiveState].Tick(deltaTime);
+            if (States.ContainsKey(ActiveState))
+            {
+                States[ActiveState].Tick(deltaTime);
+            }
         }
     }
 }
