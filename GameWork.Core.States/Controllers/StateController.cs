@@ -44,8 +44,16 @@ namespace GameWork.Core.States.Controllers
 			newState.ChangeStateEvent += ChangeState;
 			newState.Enter();
 		}
+
+        public void ExitActiveState()
+        {
+            if (States.ContainsKey(ActiveState))
+            {
+                States[ActiveState].Exit();
+            }
+        }
         
-        public void Initialize()
+		public void Initialize()
 		{
 			foreach (var state in States.Values)
 			{
@@ -55,10 +63,7 @@ namespace GameWork.Core.States.Controllers
 
 		public void Terminate()
 		{
-		    if (States.ContainsKey(ActiveState))
-		    {
-                States[ActiveState].Exit();
-            }
+            ExitActiveState();
 
 			foreach (var state in States.Values)
 			{
