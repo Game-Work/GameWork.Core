@@ -2,10 +2,14 @@
 {
     public class AudioClipModel
     {
-        public string Path { get; set; }
+        public string Name { get; set; }
 
-        public uint Layer { get; set; }
+        public float TargetVolume { get; set; }
+
+        public uint TargetLayer { get; set; }
 
         public bool Loop { get; set; }
+
+        public float Duration { get; set; }
     }
 }

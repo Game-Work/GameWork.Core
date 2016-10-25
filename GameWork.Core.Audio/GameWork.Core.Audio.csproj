@@ -59,12 +59,13 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AudioClip.cs" />
     <Compile Include="AudioClipModel.cs" />
     <Compile Include="Interfaces\IAudioClip.cs" />
+    <Compile Include="Interfaces\IAudioClipFactory.cs" />
     <Compile Include="Interfaces\IAudioController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MultiClip.cs" />

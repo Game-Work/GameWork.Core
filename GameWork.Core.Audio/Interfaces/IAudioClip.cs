@@ -2,6 +2,14 @@
 {
 	public interface IAudioClip
 	{
-		string Name { get; set; }
-	}
+        string Name { get; }
+
+        float TargetVolume { get; }
+
+        uint TargetLayer { get; }
+
+        bool Loop { get; }
+
+        float Duration { get; }
+    }
 }
