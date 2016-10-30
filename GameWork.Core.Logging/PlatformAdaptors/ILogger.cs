@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GameWork.Core.Logging.Interfaces
+namespace GameWork.Core.Logging.PlatformAdaptors
 {
     public interface ILogger
     {

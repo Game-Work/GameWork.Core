@@ -1,7 +1,7 @@
-﻿using GameWork.Core.Audio.Interfaces;
+﻿using GameWork.Core.Audio.Clip;
 using GameWork.Core.Utilities;
 
-namespace GameWork.Core.Audio
+namespace GameWork.Core.Audio.MultiClip
 {
 	public class MultiClip
 	{
@@ -14,13 +14,13 @@ namespace GameWork.Core.Audio
 			_model = model;
 		}
 
-		public IAudioClip GetRandom()
+		public AudioClipModel GetRandom()
 		{
 			var randomIndex = RandomUtil.Next(_model.Clips.Length);
 			return _model.Clips[randomIndex];
 		}
 
-		public IAudioClip GetDifferentRandom()
+		public AudioClipModel GetDifferentRandom()
 		{
 			var randomIndex = RandomUtil.Next(_model.Clips.Length);
 

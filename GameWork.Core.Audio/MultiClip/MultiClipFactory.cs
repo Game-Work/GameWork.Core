@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace GameWork.Core.Audio
+namespace GameWork.Core.Audio.MultiClip
 {
 	public class MultiClipFactory
 	{

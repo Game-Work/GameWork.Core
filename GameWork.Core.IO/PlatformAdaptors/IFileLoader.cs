@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace GameWork.Core.IO.Interfaces
+namespace GameWork.Core.IO.EngineAdaptors
 {
 	public interface IFileLoader
 	{

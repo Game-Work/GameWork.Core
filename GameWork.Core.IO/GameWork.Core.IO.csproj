@@ -62,9 +62,9 @@
   <ItemGroup>
     <Compile Include="CSV.cs" />
     <Compile Include="CSVReader.cs" />
-    <Compile Include="Interfaces\IFileLoader.cs" />
-    <Compile Include="Interfaces\IJSONReader.cs" />
-    <Compile Include="Interfaces\ITextFileLoader.cs" />
+    <Compile Include="PlatformAdaptors\IFileLoader.cs" />
+    <Compile Include="PlatformAdaptors\IJSONReader.cs" />
+    <Compile Include="PlatformAdaptors\ITextFileLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

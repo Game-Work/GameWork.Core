@@ -60,7 +60,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\ILogger.cs" />
+    <Compile Include="PlatformAdaptors\ILogger.cs" />
     <Compile Include="LogUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

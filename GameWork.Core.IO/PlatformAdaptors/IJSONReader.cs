@@ -1,7 +1,7 @@
-﻿using GameWork.Core.Models.Interfaces;
-using System.IO;
+﻿using System.IO;
+using GameWork.Core.Models.Interfaces;
 
-namespace GameWork.Core.IO.Interfaces
+namespace GameWork.Core.IO.EngineAdaptors
 {
 	public interface IJsonReader
 	{

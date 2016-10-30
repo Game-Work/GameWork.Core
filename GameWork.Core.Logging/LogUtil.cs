@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
-using GameWork.Core.Logging.Interfaces;
+using GameWork.Core.Logging.PlatformAdaptors;
 
 namespace GameWork.Core.Logging
 {
