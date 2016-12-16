@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{88CCA717-C4A4-4ED1-AF49-DDB119D482A6}</ProjectGuid>
+    <ProjectGuid>{287F4A71-2782-4962-930E-19A57838BB3C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GameWork.Core.Components.Tests</RootNamespace>
-    <AssemblyName>GameWork.Core.Components.Tests</AssemblyName>
+    <RootNamespace>GameWork.Core.Logging.Tests</RootNamespace>
+    <AssemblyName>GameWork.Core.Logging.Tests</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -36,32 +37,24 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComponentContainerTests.cs" />
+    <Compile Include="LogUtilTests.cs" />
+    <Compile Include="MockObjects\LogMessage.cs" />
+    <Compile Include="MockObjects\MockLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MockObjects\MockMesh.cs" />
-    <Compile Include="MockObjects\MockTransform.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GameWork.Core.Logging\GameWork.Core.Logging.csproj">
+      <Project>{FB406B0E-AED7-4482-9866-B64C7A64BB6C}</Project>
+      <Name>GameWork.Core.Logging</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GameWork.Core.Components\GameWork.Core.Components.csproj">
-      <Project>{C0C02E92-C987-4AE4-87BE-DA9F15BA5F74}</Project>
-      <Name>GameWork.Core.Components</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\GameWork.Core.Math\GameWork.Core.Math.csproj">
-      <Project>{10A3459A-DCC3-4261-BB8D-517451CA0E9C}</Project>
-      <Name>GameWork.Core.Math</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -2,7 +2,7 @@
 
 namespace GameWork.Core.Components.Tests.TestObjects
 {
-    public class TestMesh : IMesh
+    public class MockMesh : IMesh
     {
     }
 }

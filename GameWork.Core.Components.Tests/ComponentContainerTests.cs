@@ -6,18 +6,18 @@ namespace GameWork.Core.Components.Tests
     public class ComponentContainerTests
     {
         [Test]
-        public void TestAddComponent()
+        public void AddComponent()
         {
-            var component = new TestMesh();
+            var component = new MockMesh();
             var componentContainer = new ComponentContainer();
 
             Assert.IsTrue(componentContainer.TryAddComponent(component));
         }
 
         [Test]
-        public void TestAddDuplicateComponent()
+        public void AddDuplicateComponent()
         {
-            var component = new TestMesh();
+            var component = new MockMesh();
             var componentContainer = new ComponentContainer();
 
             Assert.IsTrue(componentContainer.TryAddComponent(component));
@@ -26,78 +26,78 @@ namespace GameWork.Core.Components.Tests
         }
 
         [Test]
-        public void TestHasComponent()
+        public void HasComponent()
         {
-            var component = new TestMesh();
+            var component = new MockMesh();
             var componentContainer = new ComponentContainer();
 
             componentContainer.TryAddComponent(component);
 
-            Assert.IsTrue(componentContainer.HasComponent<TestMesh>());
+            Assert.IsTrue(componentContainer.HasComponent<MockMesh>());
         }
 
         [Test]
-        public void TestDoesntHaveComponent()
+        public void DoesntHaveComponent()
         {
-            var component = new TestMesh();
+            var component = new MockMesh();
             var componentContainer = new ComponentContainer();
 
-            Assert.IsFalse(componentContainer.HasComponent<TestMesh>());
+            Assert.IsFalse(componentContainer.HasComponent<MockMesh>());
 
             componentContainer.TryAddComponent(component);
 
-            Assert.IsFalse(componentContainer.HasComponent<TestTransform>());
+            Assert.IsFalse(componentContainer.HasComponent<MockTransform>());
         }
 
         [Test]
-        public void TestGetComponent()
+        public void GetComponent()
         {
-            var component = new TestMesh();
+            var component = new MockMesh();
             var componentContainer = new ComponentContainer();
 
             componentContainer.TryAddComponent(component);
 
-            TestMesh gotComponent;
+            MockMesh gotComponent;
             Assert.IsTrue(componentContainer.TryGetComponent(out gotComponent));
             Assert.AreSame(component, gotComponent);
         }
 
         [Test]
-        public void TestCantGetComponent()
+        public void CantGetComponent()
         {
-            var component = new TestMesh();
+            var component = new MockMesh();
             var componentContainer = new ComponentContainer();
 
             componentContainer.TryAddComponent(component);
 
-            TestTransform gotComponent;
+            MockTransform gotComponent;
             Assert.IsFalse(componentContainer.TryGetComponent(out gotComponent));
             Assert.AreNotSame(component, gotComponent);
             Assert.IsNull(gotComponent);
         }
 
         [Test]
-        public void TestRemoveComponentInstance()
+        public void RemoveComponentInstance()
         {
-            var component = new TestMesh();
+            var component = new MockMesh();
             var componentContainer = new ComponentContainer();
 
             componentContainer.TryAddComponent(component);
 
             Assert.IsTrue(componentContainer.TryRemoveComponent(component));
-            Assert.IsFalse(componentContainer.HasComponent<TestMesh>());
+            Assert.IsFalse(componentContainer.HasComponent<MockMesh>());
         }
 
         [Test]
-        public void TestRemoveComponentType()
+        public void RemoveComponentType()
         {
-            var component = new TestMesh();
+            var component = new MockMesh();
             var componentContainer = new ComponentContainer();
 
             componentContainer.TryAddComponent(component);
 
-            Assert.IsTrue(componentContainer.TryRemoveComponent<TestMesh>());
-            Assert.IsFalse(componentContainer.HasComponent<TestMesh>());
+            Assert.IsTrue(componentContainer.TryRemoveComponent<MockMesh>());
+            Assert.IsFalse(componentContainer.HasComponent<MockMesh>());
         }
     }
 }
