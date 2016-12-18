@@ -1,6 +1,6 @@
 ﻿using GameWork.Core.Commands.Interfaces;
 
-namespace GameWork.Core.Commands.States.Interfaces
+namespace GameWork.Core.States.Commands.Interfaces
 {
     public interface IChangeStateAction : ICommandAction
     {

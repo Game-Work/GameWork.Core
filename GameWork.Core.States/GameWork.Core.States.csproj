@@ -57,20 +57,25 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\SequenceStateController.cs" />
-    <Compile Include="Interfaces\ISequenceState.cs" />
+    <Compile Include="Commands\TryNextStateInHistoryCommand.cs" />
+    <Compile Include="Commands\Interfaces\ITryNextStateInHistoryAction.cs" />
+    <Compile Include="Commands\Interfaces\ITryPreviousStateInHistoryAction.cs" />
+    <Compile Include="Commands\TryPreviousStateInHistoryCommand.cs" />
     <Compile Include="Interfaces\IState.cs" />
-    <Compile Include="Interfaces\ITickableState.cs" />
+    <Compile Include="Interfaces\ITransition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SequenceState.cs" />
     <Compile Include="State.cs" />
-    <Compile Include="Controllers\StateController.cs" />
-    <Compile Include="TickableSequenceState.cs" />
-    <Compile Include="TickableState.cs" />
-    <Compile Include="Controllers\TickableStateController.cs" />
+    <Compile Include="StateController.cs" />
+    <Compile Include="Commands\ChangeStateCommand.cs" />
+    <Compile Include="Commands\Interfaces\IChangeStateAction.cs" />
+    <Compile Include="Commands\Interfaces\INextStateInSequenceAction.cs" />
+    <Compile Include="Commands\Interfaces\IPreviousStateInSequenceAction.cs" />
+    <Compile Include="Commands\NextStateInSequenceCommand.cs" />
+    <Compile Include="Commands\PreviousStateInSequenceCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameWork.Core.Commands\GameWork.Core.Commands.csproj">

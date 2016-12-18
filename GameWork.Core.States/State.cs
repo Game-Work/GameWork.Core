@@ -1,36 +1,30 @@
 ﻿using System;
-using GameWork.Core.Commands.States.Interfaces;
 using GameWork.Core.States.Interfaces;
-using GameWork.Core.Commands.Interfaces;
 
 namespace GameWork.Core.States
 {
-	public abstract class State : IState, IChangeStateAction
+	public abstract class State : IState
 	{
 		public abstract string Name { get; }
 
 		public bool IsActive { get; private set; }
-		
-		public event Action<string> ChangeStateEvent;
 
-		public event Action BackStateEvent;
+	    private readonly ITransition[] _transitions;
 
-		public void ChangeState(string toStateName)
-		{
-			ChangeStateEvent(toStateName);
-		}
+	    protected State(ITransition[] transitions)
+	    {
+	        _transitions = transitions;
+	    }
 
-		public void BackState()
-		{
-			BackStateEvent();
-		}
+        public virtual void Initialize()
+        {
+        }
 
-		public void ChangeToParent(ICommand command = null)
-		{
-			ChangeToParent(command);
-		}
+        public virtual void Terminate()
+        {
+        }
 
-		public virtual void Enter()
+        public virtual void Enter()
 		{
 			IsActive = true;
 		}
@@ -39,15 +33,26 @@ namespace GameWork.Core.States
 		{
 			IsActive = false;
 		}
-		
-		public virtual void Initialize()
-		{
 
-		}
+	    public virtual void Tick(float deltaTime)
+	    {
+	    }
 
-		public virtual void Terminate()
-		{
+	    public bool AnyTransitionDone()
+	    {
+	        var didTransition = false;
 
-		}
-	}
+	        foreach (var transition in _transitions)
+	        {
+	            if (transition.IsConditionMet)
+	            {
+	                transition.OnConditionMet();
+	                didTransition = true;
+	                break;
+	            }
+	        }
+
+            return didTransition;
+	    }
+    }
 }

@@ -69,16 +69,10 @@
     <Compile Include="CommandResolver.cs" />
     <Compile Include="Interfaces\ICommandAction.cs" />
     <Compile Include="Interfaces\ICommandResolver.cs" />
-    <Compile Include="States\ChangeStateCommand.cs" />
     <Compile Include="CommandQueue.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\ICommandQueue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="States\Interfaces\IChangeStateAction.cs" />
-    <Compile Include="States\Interfaces\INextStateAction.cs" />
-    <Compile Include="States\Interfaces\IPreviousStateAction.cs" />
-    <Compile Include="States\NextStateCommand.cs" />
-    <Compile Include="States\PreviousStateCommand.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

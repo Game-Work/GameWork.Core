@@ -1,21 +1,13 @@
-﻿using GameWork.Core.Commands.Interfaces;
-using GameWork.Core.Interfaces;
-using System;
+﻿using GameWork.Core.Interfaces;
 
 namespace GameWork.Core.States.Interfaces
 {
-	public interface IState : IInitializable, IEnterable
+	public interface IState : IInitializable, IEnterable, ITickable
 	{
 		string Name { get; }
 
 		bool IsActive { get; }
 
-		event Action<string> ChangeStateEvent;
-
-		event Action BackStateEvent;
-
-		void ChangeState(string toStateName);
-
-		void BackState();
+	    bool AnyTransitionDone();
 	}
 }
