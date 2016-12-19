@@ -8,6 +8,6 @@ namespace GameWork.Core.States.Interfaces
 
 		bool IsActive { get; }
 
-	    bool AnyTransitionDone();
+	    bool CheckTransitions(out string toStateName);
 	}
 }

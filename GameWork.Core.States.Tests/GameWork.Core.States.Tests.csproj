@@ -47,6 +47,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StateCommandResolverTests.cs" />
     <Compile Include="TestObjects\AddToTestCollectionCommand.cs" />
+    <Compile Include="TestObjects\StateTransition.cs" />
+    <Compile Include="TestObjects\StateTransitionBlackboard.cs" />
     <Compile Include="TestObjects\TestCollection.cs" />
     <Compile Include="TestObjects\TestCollectionCommandResolver.cs" />
     <Compile Include="TestObjects\TestStateCommandResolver.cs" />

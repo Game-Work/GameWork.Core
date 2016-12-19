@@ -11,7 +11,7 @@ namespace GameWork.Core.States.Tests.TestObjects
             get { return StateName; }
         }
 
-        public TestStateOne(ITransition[] transitions) : base(transitions)
+        public TestStateOne(IStateTransition[] stateTransitions) : base(stateTransitions)
         {
         }
 	}

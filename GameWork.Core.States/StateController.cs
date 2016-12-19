@@ -66,10 +66,15 @@ namespace GameWork.Core.States
 
 	    public void Tick(float deltaTime)
 	    {
-	        if (!_states[ActiveStateIndex].AnyTransitionDone())
+	        string toStateName;
+	        if (_states[ActiveStateIndex].CheckTransitions(out toStateName))
 	        {
-	            _states[ActiveStateIndex].Tick(deltaTime);
+	            ChangeState(toStateName);
 	        }
+	        else
+	        {
+                _states[ActiveStateIndex].Tick(deltaTime);
+            }
 	    }
 
         #region Actions

@@ -1,5 +1,4 @@
-﻿using System;
-using GameWork.Core.States.Interfaces;
+﻿using GameWork.Core.States.Interfaces;
 
 namespace GameWork.Core.States
 {
@@ -9,11 +8,11 @@ namespace GameWork.Core.States
 
 		public bool IsActive { get; private set; }
 
-	    private readonly ITransition[] _transitions;
+	    private readonly IStateTransition[] _stateTransitions;
 
-	    protected State(ITransition[] transitions)
+	    protected State(IStateTransition[] stateTransitions)
 	    {
-	        _transitions = transitions;
+	        _stateTransitions = stateTransitions;
 	    }
 
         public virtual void Initialize()
@@ -38,15 +37,16 @@ namespace GameWork.Core.States
 	    {
 	    }
 
-	    public bool AnyTransitionDone()
+	    public bool CheckTransitions(out string toStateName)
 	    {
 	        var didTransition = false;
+	        toStateName = null;
 
-	        foreach (var transition in _transitions)
+	        foreach (var transition in _stateTransitions)
 	        {
 	            if (transition.IsConditionMet)
 	            {
-	                transition.OnConditionMet();
+	                toStateName = transition.ToStateName;
 	                didTransition = true;
 	                break;
 	            }

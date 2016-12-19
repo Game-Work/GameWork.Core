@@ -10,15 +10,36 @@ namespace GameWork.Core.States.Tests
 	[TestFixture]
 	public class StateCommandResolverTests
 	{
-	    private readonly State[] _states = new State[]
-	    {
-	        new TestStateOne(new ITransition[0]),
-	        new TestStateTwo(new ITransition[0]),
-	        new TestStateThree(new ITransition[0])
-	    };
+	    private readonly StateTransitionBlackboard _stateTransitionBlackboard;
+	    private readonly State[] _states;
 
         private StateController _stateController;
         private TestStateCommandResolver _commandResolver;
+
+	    public StateCommandResolverTests()
+	    {
+
+            _stateTransitionBlackboard = new StateTransitionBlackboard();
+
+            _states = new State[]
+            {
+                new TestStateOne(new IStateTransition[]
+                {
+                    new StateTransition(TestStateTwo.StateName, _stateTransitionBlackboard),
+                }),
+
+                new TestStateTwo(new IStateTransition[]
+                {
+                    new StateTransition(TestStateThree.StateName, _stateTransitionBlackboard), 
+                }),
+
+                new TestStateThree(new IStateTransition[]
+                {
+                    new StateTransition(TestStateOne.StateName, _stateTransitionBlackboard),
+                })
+            };
+        }
+
 
         [SetUp]
 	    public void Setup()
@@ -122,6 +143,26 @@ namespace GameWork.Core.States.Tests
             // Assert
             Assert.AreEqual(toStateIndex, _stateController.ActiveStateIndex);
             Assert.AreEqual(0, _stateController.ActiveStateHistoryIndex);
+        }
+
+        [TestCase("One", "Two")]
+        [TestCase("Two", "Three")]
+        [TestCase("Three", "One")]
+        public void Transition(string fromStateName, string toStateName)
+	    {
+            // Arrange
+            _stateController.ChangeState(fromStateName);
+
+            var toState = _states.Single(s => s.Name == toStateName);
+            var toStateIndex = Array.IndexOf(_states, toState);
+
+            _stateTransitionBlackboard.ToStateName = toStateName;
+
+            // Act
+            _stateController.Tick(0f);
+
+            // Assert   
+            Assert.AreEqual(toStateIndex, _stateController.ActiveStateIndex);
         }
     }
 }
