@@ -27,8 +27,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameWork.Core.Controllers",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameWork.Core.Models", "GameWork.Core.Models\GameWork.Core.Models.csproj", "{D61DC2F7-EB1E-4468-B53F-803B4C873217}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9735F03B-43CA-4C1A-BFF4-D234CA8A80F2}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameWork.Core.Commands.Tests", "GameWork.Core.Commands.Tests\GameWork.Core.Commands.Tests.csproj", "{B0293DF0-31A0-442C-B0F3-21F94C884FE0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameWork.Core.Math.Tests", "GameWork.Core.Math.Tests\GameWork.Core.Math.Tests.csproj", "{85C50DD2-FBD8-4D3C-B3AA-419C6C43C061}"
@@ -185,11 +183,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{B0293DF0-31A0-442C-B0F3-21F94C884FE0} = {9735F03B-43CA-4C1A-BFF4-D234CA8A80F2}
-		{85C50DD2-FBD8-4D3C-B3AA-419C6C43C061} = {9735F03B-43CA-4C1A-BFF4-D234CA8A80F2}
-		{88CCA717-C4A4-4ED1-AF49-DDB119D482A6} = {9735F03B-43CA-4C1A-BFF4-D234CA8A80F2}
-		{287F4A71-2782-4962-930E-19A57838BB3C} = {9735F03B-43CA-4C1A-BFF4-D234CA8A80F2}
 	EndGlobalSection
 EndGlobal
