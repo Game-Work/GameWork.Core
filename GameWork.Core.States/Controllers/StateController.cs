@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using GameWork.Core.Commands.States.Interfaces;
 using GameWork.Core.Interfaces;
 using GameWork.Core.States.Interfaces;
-using GameWork.Core.Commands.Interfaces;
 
 namespace GameWork.Core.States.Controllers
 {
@@ -66,7 +65,7 @@ namespace GameWork.Core.States.Controllers
             }
         }
         
-		public void Initialize()
+		public virtual void Initialize()
 		{
 			foreach (var state in States.Values)
 			{
@@ -74,7 +73,7 @@ namespace GameWork.Core.States.Controllers
 			}
 		}
 
-		public void Terminate()
+		public virtual void Terminate()
 		{
             ExitActiveState();
 
