@@ -27,8 +27,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameWork.Core.Controllers",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameWork.Core.Models", "GameWork.Core.Models\GameWork.Core.Models.csproj", "{D61DC2F7-EB1E-4468-B53F-803B4C873217}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9735F03B-43CA-4C1A-BFF4-D234CA8A80F2}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameWork.Core.Commands.Tests", "GameWork.Core.Commands.Tests\GameWork.Core.Commands.Tests.csproj", "{B0293DF0-31A0-442C-B0F3-21F94C884FE0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameWork.Core.Math.Tests", "GameWork.Core.Math.Tests\GameWork.Core.Math.Tests.csproj", "{85C50DD2-FBD8-4D3C-B3AA-419C6C43C061}"
@@ -38,10 +36,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameWork.Core.Components.Tests", "GameWork.Core.Components.Tests\GameWork.Core.Components.Tests.csproj", "{88CCA717-C4A4-4ED1-AF49-DDB119D482A6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameWork.Core.Logging.Tests", "GameWork.Core.Logging.Tests\GameWork.Core.Logging.Tests.csproj", "{287F4A71-2782-4962-930E-19A57838BB3C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameWork.Core.States.Tests", "GameWork.Core.States.Tests\GameWork.Core.States.Tests.csproj", "{E8600E3D-2869-48DE-B63C-8435363CDF4C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameWork.Core.ObjectPool", "GameWork.Core.ObjectPool\GameWork.Core.ObjectPool.csproj", "{7C2A6405-D635-467B-BFBF-3F802C9E7174}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -186,31 +180,8 @@ Global
 		{287F4A71-2782-4962-930E-19A57838BB3C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{287F4A71-2782-4962-930E-19A57838BB3C}.Tests|Any CPU.ActiveCfg = Release|Any CPU
 		{287F4A71-2782-4962-930E-19A57838BB3C}.Tests|Any CPU.Build.0 = Release|Any CPU
-		{E8600E3D-2869-48DE-B63C-8435363CDF4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E8600E3D-2869-48DE-B63C-8435363CDF4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E8600E3D-2869-48DE-B63C-8435363CDF4C}.NuGet Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E8600E3D-2869-48DE-B63C-8435363CDF4C}.NuGet Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E8600E3D-2869-48DE-B63C-8435363CDF4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E8600E3D-2869-48DE-B63C-8435363CDF4C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E8600E3D-2869-48DE-B63C-8435363CDF4C}.Tests|Any CPU.ActiveCfg = Release|Any CPU
-		{E8600E3D-2869-48DE-B63C-8435363CDF4C}.Tests|Any CPU.Build.0 = Release|Any CPU
-		{7C2A6405-D635-467B-BFBF-3F802C9E7174}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7C2A6405-D635-467B-BFBF-3F802C9E7174}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7C2A6405-D635-467B-BFBF-3F802C9E7174}.NuGet Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7C2A6405-D635-467B-BFBF-3F802C9E7174}.NuGet Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7C2A6405-D635-467B-BFBF-3F802C9E7174}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7C2A6405-D635-467B-BFBF-3F802C9E7174}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7C2A6405-D635-467B-BFBF-3F802C9E7174}.Tests|Any CPU.ActiveCfg = Release|Any CPU
-		{7C2A6405-D635-467B-BFBF-3F802C9E7174}.Tests|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{B0293DF0-31A0-442C-B0F3-21F94C884FE0} = {9735F03B-43CA-4C1A-BFF4-D234CA8A80F2}
-		{85C50DD2-FBD8-4D3C-B3AA-419C6C43C061} = {9735F03B-43CA-4C1A-BFF4-D234CA8A80F2}
-		{88CCA717-C4A4-4ED1-AF49-DDB119D482A6} = {9735F03B-43CA-4C1A-BFF4-D234CA8A80F2}
-		{287F4A71-2782-4962-930E-19A57838BB3C} = {9735F03B-43CA-4C1A-BFF4-D234CA8A80F2}
-		{E8600E3D-2869-48DE-B63C-8435363CDF4C} = {9735F03B-43CA-4C1A-BFF4-D234CA8A80F2}
 	EndGlobalSection
 EndGlobal

@@ -29,27 +29,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Unity Debug|AnyCPU' ">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Unity Debug|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>..\..\..\Unity\Assets\GameWork\Core\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Unity Client Debug|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>..\..\..\Client\Assets\GameWork\Core\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Unity Client Debug|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>..\..\..\Client\Assets\GameWork\Core\</OutputPath>
+    <OutputPath>..\..\Unity\Assets\Plugins\GameWork\Core\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -68,15 +50,15 @@
   <ItemGroup>
     <ProjectReference Include="..\GameWork.Core.IO\GameWork.Core.IO.csproj">
       <Project>{1C2C7CF3-79D3-40AC-B908-EA4DBF5D9AC3}</Project>
-      <Name>GameWork.IO</Name>
+      <Name>GameWork.Core.IO</Name>
     </ProjectReference>
     <ProjectReference Include="..\GameWork.Core.Logging\GameWork.Core.Logging.csproj">
       <Project>{FB406B0E-AED7-4482-9866-B64C7A64BB6C}</Project>
-      <Name>GameWork.Logging</Name>
+      <Name>GameWork.Core.Logging</Name>
     </ProjectReference>
     <ProjectReference Include="..\GameWork.Core.Models\GameWork.Core.Models.csproj">
       <Project>{D61DC2F7-EB1E-4468-B53F-803B4C873217}</Project>
-      <Name>GameWork.Models</Name>
+      <Name>GameWork.Core.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
