@@ -43,6 +43,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandDrivenState\State.cs" />
+    <Compile Include="CommandDrivenState\Container.cs" />
+    <Compile Include="CommandDrivenState\CommandWriter.cs" />
     <Compile Include="Commands\TryNextStateInHistoryCommand.cs" />
     <Compile Include="Commands\Interfaces\ITryNextStateInHistoryAction.cs" />
     <Compile Include="Commands\Interfaces\ITryPreviousStateInHistoryAction.cs" />
@@ -69,6 +72,7 @@
       <Name>GameWork.Core.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

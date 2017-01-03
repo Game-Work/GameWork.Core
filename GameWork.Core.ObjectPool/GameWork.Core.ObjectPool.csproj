@@ -50,6 +50,7 @@
     <Compile Include="Interfaces\IPoolableObject.cs" />
     <Compile Include="ObjectPool.cs" />
     <Compile Include="PoolableObject.cs" />
+    <Compile Include="PoolableObjectContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

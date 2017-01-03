@@ -4,13 +4,9 @@
 	{
 	}
 
-	public interface ICommandQueue<TCommand>
+	public interface ICommandQueue<TCommand> : ICommandQueueTake<TCommand>, ICommandQueueWrite<TCommand>
 		where TCommand : ICommand
 	{
-		bool HasCommands { get; }
-
-		TCommand TakeFirstCommand();
-
-		TCommand[] TakeAllCommands();
-	}
+        bool HasCommands { get; }
+    }
 }

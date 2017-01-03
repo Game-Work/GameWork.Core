@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using GameWork.Core.Commands.Interfaces;
 
@@ -28,6 +29,30 @@ namespace GameWork.Core.Commands
             _commands.AddRange(commands);
         }
 
+        public bool TryTakeFirstCommand(out TCommand command)
+        {
+            if (HasCommands)
+            {
+                command = TakeFirstCommand();
+                return true;
+            }
+
+            command = default(TCommand);
+            return false;
+        }
+
+        public bool TryTakeAllCommands(out IList<TCommand> commands)
+        {
+            if (HasCommands)
+            {
+                commands = TakeAllCommands();
+                return true;
+            }
+
+            commands = null;
+            return false;
+        }
+        
         public TCommand TakeFirstCommand()
         {
             var command = _commands[0];
@@ -35,9 +60,9 @@ namespace GameWork.Core.Commands
             return command;
         }
 
-        public TCommand[] TakeAllCommands()
+        public IList<TCommand> TakeAllCommands()
         {
-            var commands = _commands.ToArray();
+            var commands = _commands.ToList();
             _commands.Clear();
             return commands;
         }

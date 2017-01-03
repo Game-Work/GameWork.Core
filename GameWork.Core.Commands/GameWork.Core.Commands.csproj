@@ -39,7 +39,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Accounts\LoginCommand.cs" />
@@ -49,11 +51,15 @@
     <Compile Include="Accounts\Interfaces\ILogoutAction.cs" />
     <Compile Include="Accounts\Interfaces\IRegisterAction.cs" />
     <Compile Include="CommandResolver.cs" />
+    <Compile Include="Interfaces\ICommandQueueTake.cs" />
+    <Compile Include="Interfaces\ICommandQueueWrite.cs" />
     <Compile Include="Interfaces\ICommandAction.cs" />
     <Compile Include="Interfaces\ICommandResolver.cs" />
     <Compile Include="CommandQueue.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\ICommandQueue.cs" />
+    <Compile Include="Interfaces\ITakeOnlyCommandQueue.cs" />
+    <Compile Include="Interfaces\IWriteOnlyCommandQueue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

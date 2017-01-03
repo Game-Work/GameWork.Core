@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using GameWork.Core.Interfaces;
 using GameWork.Core.States.Commands.Interfaces;
 using GameWork.Core.States.Interfaces;
@@ -24,6 +23,7 @@ namespace GameWork.Core.States
 
         public int ActiveStateIndex { get; private set; }
         public int ActiveStateHistoryIndex { get; private set; }
+        public string ActiveStateName => _states[ActiveStateIndex].Name;
 
         public int HistoryCount
         {
