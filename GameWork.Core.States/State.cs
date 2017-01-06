@@ -2,28 +2,36 @@
 
 namespace GameWork.Core.States
 {
-	public abstract class State : IState
+	public abstract class State : State<IStateTransition>
+	{
+		protected State(params IStateTransition[] stateTransitions) : base(stateTransitions)
+		{
+		}
+	}
+
+	public abstract class State<TStateTransition> : IState
+		where TStateTransition : IStateTransition
 	{
 		public abstract string Name { get; }
 
 		public bool IsActive { get; private set; }
 
-	    private readonly IStateTransition[] _stateTransitions;
+		protected readonly TStateTransition[] StateTransitions;
 
-	    protected State(IStateTransition[] stateTransitions)
-	    {
-	        _stateTransitions = stateTransitions;
-	    }
+		protected State(params TStateTransition[] stateTransitions)
+		{
+			StateTransitions = stateTransitions;
+		}
 
-        public virtual void Initialize()
-        {
-        }
+		public virtual void Initialize()
+		{
+		}
 
-        public virtual void Terminate()
-        {
-        }
+		public virtual void Terminate()
+		{
+		}
 
-        public virtual void Enter()
+		public virtual void Enter()
 		{
 			IsActive = true;
 		}
@@ -32,27 +40,5 @@ namespace GameWork.Core.States
 		{
 			IsActive = false;
 		}
-
-	    public virtual void Tick(float deltaTime)
-	    {
-	    }
-
-	    public bool CheckTransitions(out string toStateName)
-	    {
-	        var didTransition = false;
-	        toStateName = null;
-
-	        foreach (var transition in _stateTransitions)
-	        {
-	            if (transition.IsConditionMet)
-	            {
-	                toStateName = transition.ToStateName;
-	                didTransition = true;
-	                break;
-	            }
-	        }
-
-            return didTransition;
-	    }
-    }
+	}
 }

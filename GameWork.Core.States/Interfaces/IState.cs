@@ -2,12 +2,10 @@
 
 namespace GameWork.Core.States.Interfaces
 {
-	public interface IState : IInitializable, IEnterable, ITickable
+	public interface IState : IInitializable, IEnterable
 	{
 		string Name { get; }
 
 		bool IsActive { get; }
-
-	    bool CheckTransitions(out string toStateName);
 	}
 }

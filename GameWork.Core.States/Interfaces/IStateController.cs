@@ -3,7 +3,7 @@ using GameWork.Core.States.Commands.Interfaces;
 
 namespace GameWork.Core.States.Interfaces
 {
-	public interface IStateController : IInitializable, ITickable,
+	public interface IStateController : IInitializable,
 		IChangeStateAction, INextStateInSequenceAction, IPreviousStateInSequenceAction, ITryNextStateInHistoryAction,
 		ITryPreviousStateInHistoryAction
 	{
