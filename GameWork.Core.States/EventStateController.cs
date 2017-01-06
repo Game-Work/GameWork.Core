@@ -1,7 +1,23 @@
-﻿namespace GameWork.Core.States
+﻿using GameWork.Core.States.Interfaces;
+
+namespace GameWork.Core.States
 {
-	public class EventStateController: StateController<EventState>
+	public class EventStateController : EventStateController<EventState>
 	{
+	}
+
+
+	public class EventStateController<TState> : StateController<TState>
+		where TState : EventState  
+	{
+		public EventStateController(IStateController parentController, params TState[] states) : base(parentController, states)
+		{
+		}
+
+		public EventStateController(params TState[] states) : base(states)
+		{
+		}
+
 		public override void ChangeState(string toStateName)
 		{
 			if (ActiveStateIndex >= 0)

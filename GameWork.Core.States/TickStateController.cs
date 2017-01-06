@@ -10,6 +10,14 @@ namespace GameWork.Core.States
 	public class TickStateController<TTickState> : StateController<TTickState>
 		where TTickState : ITickState
 	{
+		public TickStateController(IStateController parentController, params TTickState[] states) : base(parentController, states)
+		{
+		}
+
+		public TickStateController(params TTickState[] states) : base(states)
+		{
+		}
+
 		public virtual void Tick(float deltaTime)
 		{
 			string toStateName;

@@ -7,11 +7,7 @@ namespace GameWork.Core.States
 		public abstract string Name { get; }
 
 		public bool IsActive { get; private set; }
-
-		internal State()
-		{
-		}
-
+		
 		public virtual void Initialize()
 		{
 		}
