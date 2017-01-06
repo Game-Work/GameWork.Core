@@ -1,6 +1,6 @@
 ﻿namespace GameWork.Core.States.Interfaces
 {
-    public interface ITickableStateTransition : IStateTransition
+    public interface ITickStateTransition
     {
         string ToStateName { get; }
 

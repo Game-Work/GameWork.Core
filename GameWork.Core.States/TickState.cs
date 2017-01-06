@@ -2,18 +2,21 @@
 
 namespace GameWork.Core.States
 {
-	public abstract class TickableState : State<ITickableStateTransition>
+	public abstract class TickState : State
 	{
-		protected TickableState(params ITickableStateTransition[] stateTransitions) : base(stateTransitions)
+		private readonly ITickStateTransition[] _transitions;
+
+		protected TickState(params ITickStateTransition[] stateTransitions)
 		{
+			_transitions = stateTransitions;
 		}
 
-		public bool CheckTransitions(out string toStateName)
+		internal bool CheckTransitions(out string toStateName)
 		{
 			var didTransition = false;
 			toStateName = null;
 
-			foreach (var transition in StateTransitions)
+			foreach (var transition in _transitions)
 			{
 				if (transition.IsConditionMet)
 				{

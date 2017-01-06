@@ -2,7 +2,7 @@
 
 namespace GameWork.Core.States.Interfaces
 {
-	public interface ITickableStateController : ITickable, IStateController
+	public interface ITickStateController : ITickable, IStateController
 	{
 	}
 }

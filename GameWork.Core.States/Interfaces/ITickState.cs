@@ -2,7 +2,7 @@
 
 namespace GameWork.Core.States.Interfaces
 {
-	public interface ITickableState : IState, ITickable
+	public interface ITickState : IState, ITickable
 	{
 	    bool CheckTransitions(out string toStateName);
 	}

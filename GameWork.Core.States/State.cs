@@ -2,25 +2,14 @@
 
 namespace GameWork.Core.States
 {
-	public abstract class State : State<IStateTransition>
-	{
-		protected State(params IStateTransition[] stateTransitions) : base(stateTransitions)
-		{
-		}
-	}
-
-	public abstract class State<TStateTransition> : IState
-		where TStateTransition : IStateTransition
+	public abstract class State : IState
 	{
 		public abstract string Name { get; }
 
 		public bool IsActive { get; private set; }
 
-		protected readonly TStateTransition[] StateTransitions;
-
-		protected State(params TStateTransition[] stateTransitions)
+		internal State()
 		{
-			StateTransitions = stateTransitions;
 		}
 
 		public virtual void Initialize()

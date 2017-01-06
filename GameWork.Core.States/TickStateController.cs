@@ -2,13 +2,13 @@
 
 namespace GameWork.Core.States
 {
-	public class TickableStateController : TickableStateController<ITickableState>
+	public class TickStateController : TickStateController<ITickState>
 	{
 	}
 
 
-	public class TickableStateController<TTickableState> : StateController<TTickableState>
-		where TTickableState : ITickableState
+	public class TickStateController<TTickState> : StateController<TTickState>
+		where TTickState : ITickState
 	{
 		public virtual void Tick(float deltaTime)
 		{

@@ -74,7 +74,7 @@ namespace GameWork.Core.States
 			UpdateHistory();
 		}
 
-		public void ChangeState(string toStateName)
+		public virtual void ChangeState(string toStateName)
 		{
 			var toStateIndex = -1;
 
@@ -96,6 +96,7 @@ namespace GameWork.Core.States
 			{
 				if (_parentController != null)
 				{
+					TryExitCurrentState();
 					_parentController.ChangeState(toStateName);
 				}
 				else
@@ -141,13 +142,19 @@ namespace GameWork.Core.States
 		
 		private void ChangeState(int toStateIndex)
 		{
-			if (ActiveStateIndex >= 0)
-			{
-				States[ActiveStateIndex].Exit();
-			}
+			TryExitCurrentState();
 
 			ActiveStateIndex = toStateIndex;
 			States[toStateIndex].Enter();
+		}
+
+		private void TryExitCurrentState()
+		{
+			if (ActiveStateIndex >= 0)
+			{
+				States[ActiveStateIndex].Exit();
+				ActiveStateIndex = -1;
+			}
 		}
 
 		private void UpdateHistory()
