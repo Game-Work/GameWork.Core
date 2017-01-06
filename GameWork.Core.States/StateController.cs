@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using GameWork.Core.Interfaces;
-using GameWork.Core.States.Commands.Interfaces;
 using GameWork.Core.States.Interfaces;
 
 namespace GameWork.Core.States
@@ -13,67 +11,66 @@ namespace GameWork.Core.States
         }
     }
 
-    public class StateController<TState> : IInitializable, ITickable,
-        IChangeStateAction, INextStateInSequenceAction, IPreviousStateInSequenceAction, ITryNextStateInHistoryAction, ITryPreviousStateInHistoryAction
+    public class StateController<TState> : IStateController
 		where TState : IState
     {
-        private readonly TState[] _states;
+        protected readonly TState[] States;
         private readonly List<int> _history = new List<int>();
-	    private readonly StateController _parentController;
+	    private readonly IStateController _parentController;
 
         public int ActiveStateIndex { get; private set; }
         public int ActiveStateHistoryIndex { get; private set; }
-        public string ActiveStateName => _states[ActiveStateIndex].Name;
+        public string ActiveStateName => States[ActiveStateIndex].Name;
 
         public int HistoryCount
         {
             get { return _history.Count; }
         }
 
-	    public StateController(StateController parentController, params TState[] states) : this(states)
+	    public StateController(IStateController parentController, params TState[] states) : this(states)
 	    {
 	        _parentController = parentController;
 	    }
 
 		public StateController(params TState[] states)
 		{
-		    _states = states;
+		    States = states;
 
 		    ActiveStateIndex = -1;
 		    ActiveStateHistoryIndex = -1;
 		}
 
-        public void Initialize()
+        public virtual void Initialize()
         {
-            foreach (var state in _states)
+            foreach (var state in States)
             {
                 state.Initialize();
             }
         }
 
-        public void Terminate()
+        public virtual void Terminate()
         {
             if (ActiveStateIndex > 0)
             {
-                _states[ActiveStateIndex].Exit();
+                States[ActiveStateIndex].Exit();
             }
 
-            foreach (var state in _states)
+            foreach (var state in States)
             {
                 state.Terminate();
             }
         }
 
-	    public void Tick(float deltaTime)
+	    public virtual void Tick(float deltaTime)
 	    {
 	        string toStateName;
-	        if (_states[ActiveStateIndex].CheckTransitions(out toStateName))
+	        if (States[ActiveStateIndex].CheckTransitions(out toStateName))
 	        {
 	            ChangeState(toStateName);
 	        }
 	        else
 	        {
-                _states[ActiveStateIndex].Tick(deltaTime);
+                States[ActiveStateIndex].Tick(deltaTime);
             }
 	    }
 
@@ -94,9 +91,9 @@ namespace GameWork.Core.States
         {
             var toStateIndex = -1;
 
-            for(var i = 0; i < _states.Length; i++)
+            for(var i = 0; i < States.Length; i++)
             {
-                if (_states[i].Name == toStateName)
+                if (States[i].Name == toStateName)
                 {
                     toStateIndex = i;
                     break;
@@ -159,11 +156,11 @@ namespace GameWork.Core.States
         {
             if (ActiveStateIndex >= 0)
             {
-                _states[ActiveStateIndex].Exit();
+                States[ActiveStateIndex].Exit();
             }
 
             ActiveStateIndex = toStateIndex;
-            _states[toStateIndex].Enter();
+            States[toStateIndex].Enter();
         }
 
         private void UpdateHistory()
