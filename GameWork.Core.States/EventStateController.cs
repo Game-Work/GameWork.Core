@@ -5,8 +5,7 @@ namespace GameWork.Core.States
 	public class EventStateController : EventStateController<EventState>
 	{
 	}
-
-
+	
 	public class EventStateController<TState> : StateController<TState>
 		where TState : EventState  
 	{
