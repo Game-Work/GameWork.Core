@@ -2,7 +2,7 @@
 
 namespace GameWork.Core.States.Tests.TestObjects
 {
-    public class StateTransition : IStateTransition
+    public class TickStateTransition : ITickStateTransition
     {
         private StateTransitionBlackboard _transitionBlackboard;
 
@@ -13,7 +13,7 @@ namespace GameWork.Core.States.Tests.TestObjects
             get { return ToStateName == _transitionBlackboard.ToStateName; }
         }
 
-        public StateTransition(string toStateName, StateTransitionBlackboard transitionBlackboard)
+        public TickStateTransition(string toStateName, StateTransitionBlackboard transitionBlackboard)
         {
             ToStateName = toStateName;
             _transitionBlackboard = transitionBlackboard;

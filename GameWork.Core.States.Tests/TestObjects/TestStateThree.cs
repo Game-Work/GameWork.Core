@@ -2,7 +2,7 @@
 
 namespace GameWork.Core.States.Tests.TestObjects
 {
-	public class TestStateThree : State
+	public class TestStateThree : TickState
 	{
 		public const string StateName = "Three";
 
@@ -11,7 +11,7 @@ namespace GameWork.Core.States.Tests.TestObjects
 			get { return StateName; }
 		}
 
-        public TestStateThree(IStateTransition[] stateTransitions) : base(stateTransitions)
+        public TestStateThree(ITickStateTransition[] stateTransitions) : base(stateTransitions)
         {
         }
     }

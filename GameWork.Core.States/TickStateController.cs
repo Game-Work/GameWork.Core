@@ -2,13 +2,19 @@
 
 namespace GameWork.Core.States
 {
-	public class TickStateController : TickStateController<ITickState>
+	public class TickStateController : TickStateController<TickState>
 	{
+		public TickStateController(IStateController parentController, params TickState[] states) : base(parentController, states)
+		{
+		}
+
+		public TickStateController(params TickState[] states) : base(states)
+		{
+		}
 	}
 
-
 	public class TickStateController<TTickState> : StateController<TTickState>
-		where TTickState : ITickState
+		where TTickState : TickState
 	{
 		public TickStateController(IStateController parentController, params TTickState[] states) : base(parentController, states)
 		{

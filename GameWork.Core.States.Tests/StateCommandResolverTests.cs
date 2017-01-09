@@ -11,9 +11,9 @@ namespace GameWork.Core.States.Tests
 	public class StateCommandResolverTests
 	{
 	    private readonly StateTransitionBlackboard _stateTransitionBlackboard;
-	    private readonly State[] _states;
+	    private readonly TickState[] _states;
 
-        private StateController _stateController;
+        private TickStateController _stateController;
         private TestStateCommandResolver _commandResolver;
 
 	    public StateCommandResolverTests()
@@ -21,21 +21,21 @@ namespace GameWork.Core.States.Tests
 
             _stateTransitionBlackboard = new StateTransitionBlackboard();
 
-            _states = new State[]
+            _states = new TickState[]
             {
-                new TestStateOne(new IStateTransition[]
+                new TestStateOne(new ITickStateTransition[]
                 {
-                    new StateTransition(TestStateTwo.StateName, _stateTransitionBlackboard),
+                    new TickStateTransition(TestStateTwo.StateName, _stateTransitionBlackboard),
                 }),
 
-                new TestStateTwo(new IStateTransition[]
+                new TestStateTwo(new ITickStateTransition[]
                 {
-                    new StateTransition(TestStateThree.StateName, _stateTransitionBlackboard), 
+                    new TickStateTransition(TestStateThree.StateName, _stateTransitionBlackboard), 
                 }),
 
-                new TestStateThree(new IStateTransition[]
+                new TestStateThree(new ITickStateTransition[]
                 {
-                    new StateTransition(TestStateOne.StateName, _stateTransitionBlackboard),
+                    new TickStateTransition(TestStateOne.StateName, _stateTransitionBlackboard),
                 })
             };
         }
@@ -44,7 +44,7 @@ namespace GameWork.Core.States.Tests
         [SetUp]
 	    public void Setup()
 	    {
-            _stateController = new StateController(_states);
+            _stateController = new TickStateController(null, _states);
             _commandResolver = new TestStateCommandResolver(_stateController);
         }
 

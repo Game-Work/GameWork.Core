@@ -6,9 +6,9 @@ namespace GameWork.Core.States.Tests.TestObjects
 {
 	public class TestStateCommandResolver : CommandResolver
 	{
-		private readonly StateController _stateController;
+		private readonly TickStateController _stateController;
 
-		public TestStateCommandResolver(StateController stateController)
+		public TestStateCommandResolver(TickStateController stateController)
 		{
 			_stateController = stateController;
 		}

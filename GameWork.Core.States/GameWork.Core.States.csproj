@@ -47,7 +47,6 @@
     <Compile Include="Commands\Interfaces\ITryPreviousStateInHistoryAction.cs" />
     <Compile Include="Commands\TryPreviousStateInHistoryCommand.cs" />
     <Compile Include="EventStateTransition.cs" />
-    <Compile Include="Interfaces\ITickState.cs" />
     <Compile Include="Interfaces\IState.cs" />
     <Compile Include="Interfaces\IStateController.cs" />
     <Compile Include="Interfaces\ITickStateController.cs" />
