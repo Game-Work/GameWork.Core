@@ -1,4 +1,5 @@
-﻿using GameWork.Core.States.Interfaces;
+﻿using GameWork.Core.Interfaces;
+using GameWork.Core.States.Interfaces;
 
 namespace GameWork.Core.States
 {
@@ -13,7 +14,7 @@ namespace GameWork.Core.States
 		}
 	}
 
-	public class TickStateController<TTickState> : StateController<TTickState>
+	public class TickStateController<TTickState> : StateController<TTickState>, ITickable
 		where TTickState : TickState
 	{
 		public TickStateController(IStateController parentController, params TTickState[] states) : base(parentController, states)

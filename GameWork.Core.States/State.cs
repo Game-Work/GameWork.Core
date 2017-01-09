@@ -1,8 +1,8 @@
-﻿using GameWork.Core.States.Interfaces;
+﻿using GameWork.Core.Interfaces;
 
 namespace GameWork.Core.States
 {
-	public abstract class State : IState
+	public abstract class State : IInitializable, IEnterable
 	{
 		public abstract string Name { get; }
 

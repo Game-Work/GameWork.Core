@@ -4,15 +4,15 @@ using GameWork.Core.States.Interfaces;
 
 namespace GameWork.Core.States
 {
-	public class StateController : StateController<IState>
+	public class StateController : StateController<State>
 	{
-		public StateController(params IState[] states) : base(states)
+		public StateController(params State[] states) : base(states)
 		{
 		}
 	}
 
 	public class StateController<TState> : IStateController
-		where TState : IState
+		where TState : State
 	{
 		protected readonly TState[] States;
 		private readonly List<int> _history = new List<int>();
