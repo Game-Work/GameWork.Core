@@ -51,14 +51,17 @@
     <ProjectReference Include="..\GameWork.Core.IO\GameWork.Core.IO.csproj">
       <Project>{1C2C7CF3-79D3-40AC-B908-EA4DBF5D9AC3}</Project>
       <Name>GameWork.Core.IO</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\GameWork.Core.Logging\GameWork.Core.Logging.csproj">
       <Project>{FB406B0E-AED7-4482-9866-B64C7A64BB6C}</Project>
       <Name>GameWork.Core.Logging</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\GameWork.Core.Models\GameWork.Core.Models.csproj">
       <Project>{D61DC2F7-EB1E-4468-B53F-803B4C873217}</Project>
       <Name>GameWork.Core.Models</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

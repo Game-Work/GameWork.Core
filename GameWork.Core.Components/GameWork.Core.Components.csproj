@@ -52,6 +52,7 @@
     <ProjectReference Include="..\GameWork.Core.Math\GameWork.Core.Math.csproj">
       <Project>{10A3459A-DCC3-4261-BB8D-517451CA0E9C}</Project>
       <Name>GameWork.Core.Math</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -3,6 +3,8 @@ using System.Linq;
 using GameWork.Core.States.Commands;
 using GameWork.Core.States.Interfaces;
 using GameWork.Core.States.Tests.TestObjects;
+using GameWork.Core.States.Tick;
+using GameWork.Core.States.Tick.Interfaces;
 using NUnit.Framework;
 
 namespace GameWork.Core.States.Tests
@@ -18,25 +20,20 @@ namespace GameWork.Core.States.Tests
 
 	    public StateCommandResolverTests()
 	    {
-
             _stateTransitionBlackboard = new StateTransitionBlackboard();
 
-            _states = new TickState[]
+		    var testStateOne = new TestStateOne();
+		    testStateOne.AddTransitions(new TickStateTransition(TestStateTwo.StateName, _stateTransitionBlackboard));
+
+		    var testStateTwo = new TestStateTwo();
+		    testStateTwo.AddTransitions(new TickStateTransition(TestStateThree.StateName, _stateTransitionBlackboard));
+
+		    var testStateThree = new TestStateThree();
+		    testStateThree.AddTransitions(new TickStateTransition(TestStateOne.StateName, _stateTransitionBlackboard));
+
+			_states = new TickState[]
             {
-                new TestStateOne(new ITickStateTransition[]
-                {
-                    new TickStateTransition(TestStateTwo.StateName, _stateTransitionBlackboard),
-                }),
-
-                new TestStateTwo(new ITickStateTransition[]
-                {
-                    new TickStateTransition(TestStateThree.StateName, _stateTransitionBlackboard), 
-                }),
-
-                new TestStateThree(new ITickStateTransition[]
-                {
-                    new TickStateTransition(TestStateOne.StateName, _stateTransitionBlackboard),
-                })
+				testStateOne, testStateTwo, testStateThree
             };
         }
 
@@ -44,7 +41,7 @@ namespace GameWork.Core.States.Tests
         [SetUp]
 	    public void Setup()
 	    {
-            _stateController = new TickStateController(null, _states);
+            _stateController = new TickStateController(_states);
             _commandResolver = new TestStateCommandResolver(_stateController);
         }
 

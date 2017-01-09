@@ -1,28 +1,46 @@
-﻿using GameWork.Core.Interfaces;
-
-namespace GameWork.Core.States
+﻿namespace GameWork.Core.States
 {
-	public abstract class State : IInitializable, IEnterable
+	public abstract class State
 	{
 		public abstract string Name { get; }
-
+		
 		public bool IsActive { get; private set; }
 		
-		public virtual void Initialize()
+		protected virtual void OnInitialize()
 		{
 		}
 
-		public virtual void Terminate()
+		protected virtual void OnTerminate()
 		{
 		}
 
-		public virtual void Enter()
+		protected virtual void OnEnter()
 		{
+		}
+
+		protected virtual void OnExit()
+		{
+		}
+
+		internal virtual void Initialize()
+		{
+			OnInitialize();
+		}
+
+		internal virtual void Terminate()
+		{
+			OnTerminate();
+		}
+
+		internal virtual void Enter()
+		{
+			OnEnter();
 			IsActive = true;
 		}
 
-		public virtual void Exit()
+		internal virtual void Exit()
 		{
+			OnExit();
 			IsActive = false;
 		}
 	}

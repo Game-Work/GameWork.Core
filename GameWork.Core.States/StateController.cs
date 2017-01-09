@@ -15,22 +15,14 @@ namespace GameWork.Core.States
 		where TState : State
 	{
 		protected readonly TState[] States;
+
 		private readonly List<int> _history = new List<int>();
-		private readonly IStateController _parentController;
+		private IStateController _parentController;
 
 		public int ActiveStateIndex { get; private set; }
 		public int ActiveStateHistoryIndex { get; private set; }
 		public string ActiveStateName => States[ActiveStateIndex].Name;
-
-		public int HistoryCount
-		{
-			get { return _history.Count; }
-		}
-
-		public StateController(IStateController parentController, params TState[] states) : this(states)
-		{
-			_parentController = parentController;
-		}
+		public int HistoryCount => _history.Count;
 
 		public StateController(params TState[] states)
 		{
@@ -40,7 +32,12 @@ namespace GameWork.Core.States
 			ActiveStateHistoryIndex = -1;
 		}
 
-		public virtual void Initialize()
+		public void SetParent(IStateController parentController)
+		{
+			_parentController = parentController;
+		}
+
+		public void Initialize()
 		{
 			foreach (var state in States)
 			{
@@ -48,7 +45,7 @@ namespace GameWork.Core.States
 			}
 		}
 
-		public virtual void Terminate()
+		public void Terminate()
 		{
 			if (ActiveStateIndex > 0)
 			{
@@ -59,6 +56,14 @@ namespace GameWork.Core.States
 			{
 				state.Terminate();
 			}
+		}
+
+		protected virtual void OnInitialize()
+		{
+		}
+
+		protected virtual void OnTerminate()
+		{
 		}
 
 		#region Actions

@@ -1,4 +1,4 @@
-﻿using GameWork.Core.States.Interfaces;
+﻿using GameWork.Core.States.Tick.Interfaces;
 
 namespace GameWork.Core.States.Tests.TestObjects
 {

@@ -1,19 +1,23 @@
-﻿using GameWork.Core.Interfaces;
-using GameWork.Core.States.Interfaces;
+﻿using GameWork.Core.States.Tick.Interfaces;
 
-namespace GameWork.Core.States
+namespace GameWork.Core.States.Tick
 {
-	public abstract class TickState : State, ITickable
+	public abstract class TickState : State
 	{
-		private readonly ITickStateTransition[] _transitions;
+		private ITickStateTransition[] _transitions;
 
-		protected TickState(params ITickStateTransition[] stateTransitions)
+		public void AddTransitions(params ITickStateTransition[] stateTransitions)
 		{
 			_transitions = stateTransitions;
 		}
 
-		public virtual void Tick(float deltaTime)
+		protected virtual void OnTick(float deltaTime)
 		{
+		}
+
+		internal virtual void Tick(float deltaTime)
+		{
+			OnTick(deltaTime);
 		}
 
 		internal bool CheckTransitions(out string toStateName)

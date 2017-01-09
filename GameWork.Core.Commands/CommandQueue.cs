@@ -5,7 +5,7 @@ using GameWork.Core.Commands.Interfaces;
 
 namespace GameWork.Core.Commands
 {
-	public class CommandQueue : CommandQueue<ICommand>
+	public class CommandQueue : CommandQueue<ICommand>, ICommandQueue
 	{
 	}
 

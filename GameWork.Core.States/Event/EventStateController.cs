@@ -1,6 +1,4 @@
-﻿using GameWork.Core.States.Interfaces;
-
-namespace GameWork.Core.States
+﻿namespace GameWork.Core.States.Event
 {
 	public class EventStateController : EventStateController<EventState>
 	{
@@ -9,10 +7,6 @@ namespace GameWork.Core.States
 	public class EventStateController<TState> : StateController<TState>
 		where TState : EventState  
 	{
-		public EventStateController(IStateController parentController, params TState[] states) : base(parentController, states)
-		{
-		}
-
 		public EventStateController(params TState[] states) : base(states)
 		{
 		}

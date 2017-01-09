@@ -26,7 +26,7 @@ namespace GameWork.Core.Audio
             _channels = InitializeChannels(audioChannelFactory, channelCount);
         }
 
-	    public override void Tick(float deltaTime)
+	    public override void OnTick(float deltaTime)
 		{
 			ProcessFades(deltaTime);
 			SyncSlaves();

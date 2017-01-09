@@ -1,4 +1,6 @@
 ﻿using GameWork.Core.States.Interfaces;
+using GameWork.Core.States.Tick;
+using GameWork.Core.States.Tick.Interfaces;
 
 namespace GameWork.Core.States.Tests.TestObjects
 {
@@ -10,9 +12,5 @@ namespace GameWork.Core.States.Tests.TestObjects
 		{
 			get { return StateName; }
 		}
-
-        public TestStateThree(ITickStateTransition[] stateTransitions) : base(stateTransitions)
-        {
-        }
     }
 }

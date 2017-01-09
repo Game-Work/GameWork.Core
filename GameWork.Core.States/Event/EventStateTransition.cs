@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GameWork.Core.States
+namespace GameWork.Core.States.Event
 {
 	public abstract class EventStateTransition
 	{

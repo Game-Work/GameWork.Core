@@ -1,6 +1,6 @@
 ﻿namespace GameWork.Core.Commands.Interfaces
 {
-	public interface ICommandQueue : ICommandQueue<ICommand>
+	public interface ICommandQueue : ICommandQueue<ICommand>, ICommandQueueTake, ICommandQueueWrite
 	{
 	}
 

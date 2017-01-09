@@ -56,8 +56,6 @@
     <Compile Include="CommandQueue.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\ICommandQueue.cs" />
-    <Compile Include="Interfaces\ITakeOnlyCommandQueue.cs" />
-    <Compile Include="Interfaces\IWriteOnlyCommandQueue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

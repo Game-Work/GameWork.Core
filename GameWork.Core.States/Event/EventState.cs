@@ -1,12 +1,12 @@
 ﻿using GameWork.Core.States.Commands.Interfaces;
 
-namespace GameWork.Core.States
+namespace GameWork.Core.States.Event
 {
 	public abstract class EventState : State
 	{
-		private readonly EventStateTransition[] _transitions;
+		private EventStateTransition[] _transitions;
 
-		protected EventState(params EventStateTransition[] stateTransitions)
+		public void AddTransitions(params EventStateTransition[] stateTransitions)
 		{
 			_transitions = stateTransitions;
 		}

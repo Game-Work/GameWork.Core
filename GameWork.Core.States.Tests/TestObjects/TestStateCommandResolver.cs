@@ -1,6 +1,7 @@
 ﻿using GameWork.Core.Commands;
 using GameWork.Core.Commands.Interfaces;
 using GameWork.Core.States.Commands;
+using GameWork.Core.States.Tick;
 
 namespace GameWork.Core.States.Tests.TestObjects
 {

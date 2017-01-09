@@ -50,6 +50,7 @@
     <ProjectReference Include="..\GameWork.Core.Models\GameWork.Core.Models.csproj">
       <Project>{d61dc2f7-eb1e-4468-b53f-803b4c873217}</Project>
       <Name>GameWork.Core.Models</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

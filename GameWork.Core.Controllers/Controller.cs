@@ -1,12 +1,10 @@
-﻿using GameWork.Core.Controllers.Interfaces;
-
-namespace GameWork.Core.Controllers
+﻿namespace GameWork.Core.Controllers
 {
-	public abstract class Controller : IController
+	public abstract class Controller
 	{
 		public virtual bool IsActive { get; private set; }
 
-		public virtual void Initialize()
+		public virtual void OnInitialize()
 		{			
 		}
 
@@ -15,7 +13,7 @@ namespace GameWork.Core.Controllers
 			IsActive = true;
 		}
 
-		public virtual void Tick(float deltaTime)
+		public virtual void OnTick(float deltaTime)
 		{
 		}
 
@@ -24,7 +22,7 @@ namespace GameWork.Core.Controllers
 			IsActive = false;
 		}
 
-		public virtual void Terminate()
+		public virtual void OnTerminate()
 		{
 			if(!IsActive)
 			{
