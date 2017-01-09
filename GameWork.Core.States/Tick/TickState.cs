@@ -1,14 +1,16 @@
-﻿using GameWork.Core.States.Tick.Interfaces;
+﻿using System.Collections.Generic;
+using GameWork.Core.States.Event;
+using GameWork.Core.States.Tick.Interfaces;
 
 namespace GameWork.Core.States.Tick
 {
-	public abstract class TickState : State
+	public abstract class TickState : EventState
 	{
-		private ITickStateTransition[] _transitions;
+		private readonly List<ITickStateTransition> _transitions = new List<ITickStateTransition>();
 
 		public void AddTransitions(params ITickStateTransition[] stateTransitions)
 		{
-			_transitions = stateTransitions;
+			_transitions.AddRange(stateTransitions);
 		}
 
 		protected virtual void OnTick(float deltaTime)

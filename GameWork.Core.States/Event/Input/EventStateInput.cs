@@ -1,6 +1,6 @@
 ﻿using GameWork.Core.States.Input;
 
-namespace GameWork.Core.States.Event
+namespace GameWork.Core.States.Event.Input
 {
 	public abstract class InputEventState : InputEventState<StateInput>
 	{

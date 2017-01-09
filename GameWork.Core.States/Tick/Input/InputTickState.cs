@@ -23,16 +23,7 @@ namespace GameWork.Core.States.Tick.Input
 			_tickStateInput = tickStateInput;
 			_commandQueue = new CommandQueue();
 			_tickStateInput.SetCommandQueue(_commandQueue);
-		}
-
-		public void AddTransitions(params InputTickStateTransition[] stateTransitions)
-		{
-			base.AddTransitions(stateTransitions);
-			foreach(var transition in stateTransitions)
-			{
-				transition.SetCommandQueue(_commandQueue);
-			}
-		}
+		}	
 
 		internal override void Initialize()
 		{

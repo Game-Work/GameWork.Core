@@ -47,11 +47,10 @@
     <Compile Include="Commands\Interfaces\ITryNextStateInHistoryAction.cs" />
     <Compile Include="Commands\Interfaces\ITryPreviousStateInHistoryAction.cs" />
     <Compile Include="Commands\TryPreviousStateInHistoryCommand.cs" />
-    <Compile Include="Event\EventStateInput.cs" />
+    <Compile Include="Event\Input\EventStateInput.cs" />
     <Compile Include="Event\EventStateTransition.cs" />
     <Compile Include="Interfaces\IStateController.cs" />
     <Compile Include="Tick\Interfaces\ITickStateTransition.cs" />
-    <Compile Include="Tick\Input\InputTickStateTransition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Event\EventState.cs" />
     <Compile Include="Event\EventStateController.cs" />

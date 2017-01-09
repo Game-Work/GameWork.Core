@@ -1,4 +1,6 @@
-﻿namespace GameWork.Core.States.Tick
+﻿using GameWork.Core.States.Event;
+
+namespace GameWork.Core.States.Tick
 {
 	public class TickStateController : TickStateController<TickState>
 	{
@@ -7,7 +9,7 @@
 		}
 	}
 
-	public class TickStateController<TTickState> : StateController<TTickState>
+	public class TickStateController<TTickState> : EventStateController<TTickState>
 		where TTickState : TickState
 	{
 		public TickStateController(params TTickState[] states) : base(states)
