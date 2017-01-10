@@ -14,12 +14,20 @@ namespace GameWork.Core.States.Event
 
 		internal void ConnectTransitions(IChangeStateAction changeStateAction)
 		{
-			_transitions.ForEach(t => t.ChangeStateEvent += changeStateAction.ChangeState);
+			foreach (var transition in _transitions)
+			{
+				transition.ChangeStateEvent += changeStateAction.ChangeState;
+				transition.Enter();
+			}
 		}
 
 		internal void DisconnectTransisions(IChangeStateAction changeStateAction)
 		{
-			_transitions.ForEach(t => t.ChangeStateEvent -= changeStateAction.ChangeState);
+			foreach (var transition in _transitions)
+			{
+				transition.Exit();
+				transition.ChangeStateEvent -= changeStateAction.ChangeState;
+			}
 		}
 	}
 }

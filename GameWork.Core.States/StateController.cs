@@ -43,10 +43,14 @@ namespace GameWork.Core.States
 			{
 				state.Initialize();
 			}
+
+			OnInitialize();
 		}
 
 		public void Terminate()
 		{
+			OnTerminate();
+
 			if (ActiveStateIndex > 0)
 			{
 				States[ActiveStateIndex].Exit();
