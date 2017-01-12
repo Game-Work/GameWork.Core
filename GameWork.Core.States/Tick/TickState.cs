@@ -12,9 +12,21 @@ namespace GameWork.Core.States.Tick
 		{
 			_transitions.AddRange(stateTransitions);
 		}
-
+		
 		protected virtual void OnTick(float deltaTime)
 		{
+		}
+
+		internal override void Enter(string fromStateName)
+		{
+			base.Enter(fromStateName);
+			_transitions.ForEach(t => OnEnter(fromStateName));
+		}
+
+		internal override void Exit(string toStateName)
+		{
+			_transitions.ForEach(t => OnExit(toStateName));
+			base.Exit(toStateName);
 		}
 
 		internal virtual void Tick(float deltaTime)

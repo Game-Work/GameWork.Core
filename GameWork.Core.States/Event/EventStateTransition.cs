@@ -6,11 +6,11 @@ namespace GameWork.Core.States.Event
 	{
 		internal event Action<string> ChangeStateEvent;
 		
-		protected virtual void OnEnter()
+		protected virtual void OnEnter(string fromStateName)
 		{
 		}
 
-		protected virtual void OnExit()
+		protected virtual void OnExit(string toStateName)
 		{
 		}
 
@@ -19,14 +19,14 @@ namespace GameWork.Core.States.Event
 			ChangeStateEvent(toStateName);
 		}
 
-		internal void Enter()
+		internal void Enter(string fromStateName)
 		{
-			OnEnter();
+			OnEnter(fromStateName);
 		}
 
-		internal void Exit()
+		internal void Exit(string toStateName)
 		{
-			OnExit();
+			OnExit(toStateName);
 		}
 	}
 }

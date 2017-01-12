@@ -5,18 +5,18 @@ using NUnit.Framework;
 namespace GameWork.Core.Commands.Tests
 {
 	[TestFixture]
-    public class AccountCommandResolverTests
-    {
+	public class AccountCommandResolverTests
+	{
 		private const string Username = "testUser";
 		private const string Password = "testPassword";
 
 		private readonly TestAccountContoller _accountContoller = new TestAccountContoller(Username, Password);
-	    private readonly TestAccountCommandResolver _commandResolver;
+		private readonly TestAccountCommandResolver _commandResolver;
 
-	    public AccountCommandResolverTests()
-	    {
-		    _commandResolver = new TestAccountCommandResolver(_accountContoller);
-	    }
+		public AccountCommandResolverTests()
+		{
+			_commandResolver = new TestAccountCommandResolver(_accountContoller);
+		}
 
 		[Test]
 		public void Register()

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using GameWork.Core.States.Commands.Interfaces;
 
 namespace GameWork.Core.States.Event
 {
@@ -12,21 +11,31 @@ namespace GameWork.Core.States.Event
 			_transitions.AddRange(stateTransitions);
 		}
 
-		internal void ConnectTransitions(IChangeStateAction changeStateAction)
+		internal override void Enter(string fromStateName)
+		{
+			base.Enter(fromStateName);
+			_transitions.ForEach(t => OnEnter(fromStateName));
+		}
+
+		internal override void Exit(string toStateName)
+		{
+			_transitions.ForEach(t => OnExit(toStateName));
+			base.Exit(toStateName);
+		}
+
+		internal void ConnectTransitions(StateControllerBase stateController)
 		{
 			foreach (var transition in _transitions)
 			{
-				transition.ChangeStateEvent += changeStateAction.ChangeState;
-				transition.Enter();
+				transition.ChangeStateEvent += stateController.ChangeState;
 			}
 		}
 
-		internal void DisconnectTransisions(IChangeStateAction changeStateAction)
+		internal void DisconnectTransisions(StateControllerBase stateController)
 		{
 			foreach (var transition in _transitions)
 			{
-				transition.Exit();
-				transition.ChangeStateEvent -= changeStateAction.ChangeState;
+				transition.ChangeStateEvent -= stateController.ChangeState;
 			}
 		}
 	}

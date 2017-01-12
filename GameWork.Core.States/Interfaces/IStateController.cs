@@ -1,19 +1,10 @@
-﻿using GameWork.Core.States.Commands.Interfaces;
-
-namespace GameWork.Core.States.Interfaces
+﻿namespace GameWork.Core.States.Interfaces
 {
-	public interface IStateController : IChangeStateAction, INextStateInSequenceAction, 
-		IPreviousStateInSequenceAction, ITryNextStateInHistoryAction, ITryPreviousStateInHistoryAction
+	public interface IStateController
 	{
-		int ActiveStateIndex { get; }
-
-		int ActiveStateHistoryIndex { get; }
-
 		string ActiveStateName { get; }
-
-		int HistoryCount { get; }
-
-		void Initialize();
+		
+		void Initialize(string startStateName);
 
 		void Terminate();
 	}

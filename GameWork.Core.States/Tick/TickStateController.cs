@@ -15,17 +15,17 @@ namespace GameWork.Core.States.Tick
 		public TickStateController(params TTickState[] states) : base(states)
 		{
 		}
-
+		
 		public void Tick(float deltaTime)
 		{
 			string toStateName;
-			if (States[ActiveStateIndex].CheckTransitions(out toStateName))
+			if (States[ActiveStateName].CheckTransitions(out toStateName))
 			{
-				ChangeState(toStateName);
+				OnChangeState(toStateName);
 			}
 			else
 			{
-				States[ActiveStateIndex].Tick(deltaTime);
+				States[ActiveStateName].Tick(deltaTime);
 			}
 		}
 	}

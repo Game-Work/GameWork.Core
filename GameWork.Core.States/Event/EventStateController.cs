@@ -11,18 +11,18 @@
 		{
 		}
 
-		public override void ChangeState(string toStateName)
+		protected override void OnChangeState(string toStateName)
 		{
-			if (ActiveStateIndex >= 0)
+			if (ActiveStateName != null)
 			{
-				States[ActiveStateIndex].DisconnectTransisions(this);
+				States[ActiveStateName].DisconnectTransisions(this);
 			}
 
-			base.ChangeState(toStateName);
+			base.OnChangeState(toStateName);
 
-			if (ActiveStateIndex >= 0)
+			if (ActiveStateName != null)
 			{
-				States[ActiveStateIndex].ConnectTransitions(this);
+				States[ActiveStateName].ConnectTransitions(this);
 			}
 		}
 	}

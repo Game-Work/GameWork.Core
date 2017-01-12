@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using GameWork.Core.States.Interfaces;
 
 namespace GameWork.Core.States
 {
@@ -11,52 +10,41 @@ namespace GameWork.Core.States
 		}
 	}
 
-	public class StateController<TState> : IStateController
+	public class StateController<TState> : StateControllerBase
 		where TState : State
 	{
-		protected readonly TState[] States;
-
-		private readonly List<int> _history = new List<int>();
-		private IStateController _parentController;
-
-		public int ActiveStateIndex { get; private set; }
-		public int ActiveStateHistoryIndex { get; private set; }
-		public string ActiveStateName => States[ActiveStateIndex].Name;
-		public int HistoryCount => _history.Count;
-
+		protected readonly Dictionary<string, TState> States = new Dictionary<string, TState>();
+		
 		public StateController(params TState[] states)
 		{
-			States = states;
-
-			ActiveStateIndex = -1;
-			ActiveStateHistoryIndex = -1;
+			foreach (var state in states)
+			{
+				States.Add(state.Name, state);
+			}
 		}
 
-		public void SetParent(IStateController parentController)
+		public override void Initialize(string startStateName)
 		{
-			_parentController = parentController;
-		}
-
-		public void Initialize()
-		{
-			foreach (var state in States)
+			foreach (var state in States.Values)
 			{
 				state.Initialize();
 			}
 
 			OnInitialize();
+
+			ChangeState(startStateName);
 		}
 
-		public void Terminate()
+		public override void Terminate()
 		{
 			OnTerminate();
 
-			if (ActiveStateIndex > 0)
+			if (ActiveStateName != null)
 			{
-				States[ActiveStateIndex].Exit();
+				States[ActiveStateName].Exit(null);
 			}
 
-			foreach (var state in States)
+			foreach (var state in States.Values)
 			{
 				state.Terminate();
 			}
@@ -70,43 +58,20 @@ namespace GameWork.Core.States
 		{
 		}
 
-		#region Actions
-		public void NextStateInSequence()
+		protected override void OnChangeState(string toStateName)
 		{
-			ChangeState(ActiveStateIndex + 1);
-			UpdateHistory();
-		}
+			States[ActiveStateName].Exit(toStateName);
 
-		public void PreviousStateInSequence()
-		{
-			ChangeState(ActiveStateIndex - 1);
-			UpdateHistory();
-		}
-
-		public virtual void ChangeState(string toStateName)
-		{
-			var toStateIndex = -1;
-
-			for(var i = 0; i < States.Length; i++)
+			if (States.ContainsKey(toStateName))
 			{
-				if (States[i].Name == toStateName)
-				{
-					toStateIndex = i;
-					break;
-				}
-			}
-
-			if (toStateIndex >= 0)
-			{
-				ChangeState(toStateIndex);
-				UpdateHistory();
+				States[toStateName].Enter(ActiveStateName);
+				ActiveStateName = toStateName;
 			}
 			else
 			{
-				if (_parentController != null)
+				if (ParentController != null)
 				{
-					TryExitCurrentState();
-					_parentController.ChangeState(toStateName);
+					ParentController.ChangeState(toStateName);
 				}
 				else
 				{
@@ -114,69 +79,6 @@ namespace GameWork.Core.States
 														  $"There is also no parent {nameof(StateController)} set, which may also resolve the state change.");
 				}
 			}
-		}
-
-		public bool TryNextStateInHistory()
-		{
-			var toHistoryStateIndex = ActiveStateHistoryIndex + 1;
-
-			if (toHistoryStateIndex < _history.Count)
-			{
-				ChangeState(_history[toHistoryStateIndex]);
-				ActiveStateHistoryIndex = toHistoryStateIndex;
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
-
-		public bool TryPreviousStateInHistory()
-		{
-			var toHistoryStateIndex = ActiveStateHistoryIndex - 1;
-
-			if (toHistoryStateIndex >= 0)
-			{
-				ChangeState(_history[toHistoryStateIndex]);
-				ActiveStateHistoryIndex = toHistoryStateIndex;
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
-		#endregion
-		
-		private void ChangeState(int toStateIndex)
-		{
-			TryExitCurrentState();
-
-			ActiveStateIndex = toStateIndex;
-			States[toStateIndex].Enter();
-		}
-
-		private void TryExitCurrentState()
-		{
-			if (ActiveStateIndex >= 0)
-			{
-				States[ActiveStateIndex].Exit();
-				ActiveStateIndex = -1;
-			}
-		}
-
-		private void UpdateHistory()
-		{
-			// If not the latest in the history
-			if (ActiveStateHistoryIndex < _history.Count - 1)
-			{
-				// Restart history from this point onwards
-				_history.RemoveRange(ActiveStateHistoryIndex + 1, _history.Count - (ActiveStateHistoryIndex + 1));
-			}
-
-			_history.Add(ActiveStateIndex);
-			ActiveStateHistoryIndex = _history.Count - 1;
 		}
 	}
 }

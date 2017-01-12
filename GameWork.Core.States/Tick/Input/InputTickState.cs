@@ -37,16 +37,16 @@ namespace GameWork.Core.States.Tick.Input
 			base.Terminate();
 		}
 
-		internal override void Enter()
+		internal override void Enter(string fromStateName)
 		{
-			base.Enter();
-			_tickStateInput.Enter();
+			base.Enter(fromStateName);
+			_tickStateInput.Enter(fromStateName);
 		}
 
-		internal override void Exit()
+		internal override void Exit(string toStateName)
 		{
-			_tickStateInput.Exit();
-			base.Exit();
+			_tickStateInput.Exit(toStateName);
+			base.Exit(toStateName);
 		}
 
 		internal override void Tick(float deltaTime)
