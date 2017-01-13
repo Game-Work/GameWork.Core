@@ -47,10 +47,6 @@
     <Compile Include="TestObjects\TestStateTwo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GameWork.Core.Commands\GameWork.Core.Commands.csproj">
-      <Project>{7ADF8CD4-CFCB-4E35-ABF7-E761497EAA11}</Project>
-      <Name>GameWork.Core.Commands</Name>
-    </ProjectReference>
     <ProjectReference Include="..\GameWork.Core.States\GameWork.Core.States.csproj">
       <Project>{D9ABF6B3-C495-4A39-B234-FCAB5EC9DB30}</Project>
       <Name>GameWork.Core.States</Name>

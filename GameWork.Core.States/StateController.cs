@@ -60,7 +60,10 @@ namespace GameWork.Core.States
 
 		protected override void OnChangeState(string toStateName)
 		{
-			States[ActiveStateName].Exit(toStateName);
+			if (ActiveStateName != null)
+			{
+				States[ActiveStateName].Exit(toStateName);
+			}
 
 			if (States.ContainsKey(toStateName))
 			{

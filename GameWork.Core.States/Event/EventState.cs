@@ -14,12 +14,12 @@ namespace GameWork.Core.States.Event
 		internal override void Enter(string fromStateName)
 		{
 			base.Enter(fromStateName);
-			_transitions.ForEach(t => OnEnter(fromStateName));
+			_transitions.ForEach(t => t.Enter(fromStateName));
 		}
 
 		internal override void Exit(string toStateName)
 		{
-			_transitions.ForEach(t => OnExit(toStateName));
+			_transitions.ForEach(t => t.Exit(toStateName));
 			base.Exit(toStateName);
 		}
 

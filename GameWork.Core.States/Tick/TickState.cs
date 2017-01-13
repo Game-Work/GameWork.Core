@@ -20,12 +20,12 @@ namespace GameWork.Core.States.Tick
 		internal override void Enter(string fromStateName)
 		{
 			base.Enter(fromStateName);
-			_transitions.ForEach(t => OnEnter(fromStateName));
+			_transitions.ForEach(t => OnEnter());
 		}
 
 		internal override void Exit(string toStateName)
 		{
-			_transitions.ForEach(t => OnExit(toStateName));
+			_transitions.ForEach(t => OnExit());
 			base.Exit(toStateName);
 		}
 

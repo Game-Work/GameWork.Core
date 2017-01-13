@@ -1,4 +1,4 @@
-﻿using GameWork.Core.Components.Tests.TestObjects;
+﻿using GameWork.Core.Components.Tests.MockObjects;
 using NUnit.Framework;
 
 namespace GameWork.Core.Components.Tests

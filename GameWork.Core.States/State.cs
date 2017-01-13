@@ -14,11 +14,11 @@
 		{
 		}
 
-		protected virtual void OnEnter(string fromStateName)
+		protected virtual void OnEnter()
 		{
 		}
 
-		protected virtual void OnExit(string toStateName)
+		protected virtual void OnExit()
 		{
 		}
 
@@ -34,13 +34,13 @@
 
 		internal virtual void Enter(string fromStateName)
 		{
-			OnEnter(fromStateName);
+			OnEnter();
 			IsActive = true;
 		}
 
 		internal virtual void Exit(string toStateName)
 		{
-			OnExit(toStateName);
+			OnExit();
 			IsActive = false;
 		}
 	}

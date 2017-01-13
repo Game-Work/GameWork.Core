@@ -1,4 +1,4 @@
-﻿namespace GameWork.Core.IO.EngineAdaptors
+﻿namespace GameWork.Core.IO.PlatformAdaptors
 {
 	public interface ITextFileLoader : IFileLoader
 	{
