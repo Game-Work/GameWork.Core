@@ -15,7 +15,7 @@ namespace GameWork.Core.Math.Extensions
 				vec.Y + vec.Y + 
 				vec.Z + vec.Z;
 			
-			return (float)System.Math.Sqrt((double)summedSquares);
+			return (float)System.Math.Sqrt(summedSquares);
 		}
 	}
 }
