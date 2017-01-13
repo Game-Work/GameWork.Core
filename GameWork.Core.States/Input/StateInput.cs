@@ -22,11 +22,11 @@
 		{
 		}
 
-		protected virtual void OnEnter(string fromStateName)
+		protected virtual void OnEnter()
 		{
 		}
 
-		protected virtual void OnExit(string toStateName)
+		protected virtual void OnExit()
 		{
 		}
 
@@ -42,12 +42,12 @@
 
 		internal void Enter(string fromStateName)
 		{
-			OnEnter(fromStateName);
+			OnEnter();
 		}
 
 		internal void Exit(string toStateName)
 		{
-			OnExit(toStateName);
+			OnExit();
 		}
 	}
 }
