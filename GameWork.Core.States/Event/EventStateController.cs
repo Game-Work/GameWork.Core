@@ -18,12 +18,9 @@
 				States[ActiveStateName].DisconnectTransisions(this);
 			}
 
-			base.OnChangeState(toStateName);
+			States[toStateName].ConnectTransitions(this);
 
-			if (ActiveStateName != null)
-			{
-				States[ActiveStateName].ConnectTransitions(this);
-			}
+			base.OnChangeState(toStateName);
 		}
 	}
 }
