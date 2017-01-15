@@ -1,6 +1,7 @@
 ﻿using GameWork.Core.States.Tests.TestObjects;
 using GameWork.Core.States.Tick;
 using NUnit.Framework;
+using TickStateTransition = GameWork.Core.States.Tests.TestObjects.TickStateTransition;
 
 namespace GameWork.Core.States.Tests
 {
@@ -43,7 +44,8 @@ namespace GameWork.Core.States.Tests
 		public void TickTransition(string fromStateName, string toStateName)
 		{
 			// Arrange
-			_stateController.Initialize(fromStateName);
+			_stateController.Initialize();
+			_stateController.EnterState(fromStateName);
 			_stateTransitionBlackboard.ToStateName = toStateName;
 
 			// Act

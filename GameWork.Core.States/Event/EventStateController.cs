@@ -10,8 +10,8 @@
 		public EventStateController(params TState[] states) : base(states)
 		{
 		}
-
-		protected override void OnChangeState(string toStateName)
+		
+		public override void EnterState(string toStateName)
 		{
 			if (ActiveStateName != null)
 			{
@@ -20,7 +20,7 @@
 
 			States[toStateName].ConnectTransitions(this);
 
-			base.OnChangeState(toStateName);
+			base.EnterState(toStateName);
 		}
 	}
 }

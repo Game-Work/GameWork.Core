@@ -14,7 +14,11 @@ namespace GameWork.Core.States
 		where TState : State
 	{
 		protected readonly Dictionary<string, TState> States = new Dictionary<string, TState>();
-		
+
+		public string ActiveStateName { protected set; get; }
+
+		protected bool IsProcessingStateChange { get; set; }
+
 		public StateController(params TState[] states)
 		{
 			foreach (var state in states)
@@ -23,7 +27,7 @@ namespace GameWork.Core.States
 			}
 		}
 
-		public override void Initialize(string startStateName)
+		public void Initialize()
 		{
 			foreach (var state in States.Values)
 			{
@@ -31,11 +35,9 @@ namespace GameWork.Core.States
 			}
 
 			OnInitialize();
-
-			ChangeState(startStateName);
 		}
 
-		public override void Terminate()
+		public void Terminate()
 		{
 			OnTerminate();
 
@@ -58,13 +60,18 @@ namespace GameWork.Core.States
 		{
 		}
 
-		protected override void OnChangeState(string toStateName)
+		public override void ExitState(string toStateName)
 		{
+			IsProcessingStateChange = true;
+
 			if (ActiveStateName != null)
 			{
 				States[ActiveStateName].Exit(toStateName);
 			}
+		}
 
+		public override void EnterState(string toStateName)
+		{
 			if (States.ContainsKey(toStateName))
 			{
 				States[toStateName].Enter(ActiveStateName);
@@ -74,7 +81,8 @@ namespace GameWork.Core.States
 			{
 				if (ParentController != null)
 				{
-					ParentController.ChangeState(toStateName);
+					ParentController.ExitState(toStateName);
+					ParentController.EnterState(toStateName);
 				}
 				else
 				{
@@ -82,6 +90,8 @@ namespace GameWork.Core.States
 														  $"There is also no parent {nameof(StateController)} set, which may also resolve the state change.");
 				}
 			}
+
+			IsProcessingStateChange = false;
 		}
 	}
 }

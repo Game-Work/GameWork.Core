@@ -27,7 +27,8 @@ namespace GameWork.Core.States.Event
 		{
 			foreach (var transition in _transitions)
 			{
-				transition.ChangeStateEvent += stateController.ChangeState;
+				transition.ExitStateEvent += stateController.ExitState;
+				transition.EnterStateEvent += stateController.EnterState;
 			}
 		}
 
@@ -35,7 +36,8 @@ namespace GameWork.Core.States.Event
 		{
 			foreach (var transition in _transitions)
 			{
-				transition.ChangeStateEvent -= stateController.ChangeState;
+				transition.ExitStateEvent -= stateController.ExitState;
+				transition.EnterStateEvent -= stateController.EnterState;
 			}
 		}
 	}

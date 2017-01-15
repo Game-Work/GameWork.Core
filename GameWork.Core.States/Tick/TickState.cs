@@ -1,55 +1,36 @@
 ﻿using System.Collections.Generic;
 using GameWork.Core.States.Event;
-using GameWork.Core.States.Tick.Interfaces;
 
 namespace GameWork.Core.States.Tick
 {
 	public abstract class TickState : EventState
 	{
-		private readonly List<ITickStateTransition> _transitions = new List<ITickStateTransition>();
+		private readonly List<TickStateTransition> _transitions = new List<TickStateTransition>();
 
-		public void AddTransitions(params ITickStateTransition[] stateTransitions)
+		public void AddTransitions(params TickStateTransition[] stateTransitions)
 		{
 			_transitions.AddRange(stateTransitions);
+			base.AddTransitions(stateTransitions);
 		}
 		
 		protected virtual void OnTick(float deltaTime)
 		{
 		}
-
-		internal override void Enter(string fromStateName)
-		{
-			base.Enter(fromStateName);
-			_transitions.ForEach(t => OnEnter());
-		}
-
-		internal override void Exit(string toStateName)
-		{
-			_transitions.ForEach(t => OnExit());
-			base.Exit(toStateName);
-		}
-
+		
 		internal virtual void Tick(float deltaTime)
 		{
 			OnTick(deltaTime);
 		}
 
-		internal bool CheckTransitions(out string toStateName)
+		internal void TickTransitions(float deltaTime)
 		{
-			var didTransition = false;
-			toStateName = null;
-
 			foreach (var transition in _transitions)
 			{
-				if (transition.IsConditionMet)
+				if (transition.DidChangeState(deltaTime))
 				{
-					toStateName = transition.ToStateName;
-					didTransition = true;
 					break;
 				}
 			}
-
-			return didTransition;
 		}
 	}
 }
