@@ -4,7 +4,7 @@
 	{
 		public virtual bool IsActive { get; private set; }
 
-		public virtual void OnInitialize()
+		public virtual void Initialize()
 		{			
 		}
 
@@ -13,7 +13,7 @@
 			IsActive = true;
 		}
 
-		public virtual void OnTick(float deltaTime)
+		public virtual void Tick(float deltaTime)
 		{
 		}
 
@@ -22,7 +22,7 @@
 			IsActive = false;
 		}
 
-		public virtual void OnTerminate()
+		public virtual void Terminate()
 		{
 			if(!IsActive)
 			{

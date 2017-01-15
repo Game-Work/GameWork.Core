@@ -26,10 +26,10 @@ namespace GameWork.Core.Audio
             _channels = InitializeChannels(audioChannelFactory, channelCount);
         }
 
-	    public override void OnTick(float deltaTime)
+	    public override void Tick(float deltaTime)
 		{
 			ProcessFades(deltaTime);
-			SyncSlaves();
+			TickChannels();
 		}
 
 		public bool IsPlaying(AudioClipModel clip)
@@ -236,13 +236,13 @@ namespace GameWork.Core.Audio
 			channel.Volume = _volumeUpperLimit;
 		}
 
-		private void SyncSlaves()
+		private void TickChannels()
 		{
 		    foreach (var channel in _channels)
 		    {
 		        if(channel.IsPlaying)
 		        {
-		            channel.Sync();
+		            channel.Tick();
 		        }
 		    }
 		}

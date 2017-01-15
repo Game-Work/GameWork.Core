@@ -1,4 +1,5 @@
-﻿using GameWork.Core.Audio.Clip;
+﻿using System;
+using GameWork.Core.Audio.Clip;
 
 namespace GameWork.Core.Audio.PlatformAdaptors
 {
@@ -16,6 +17,6 @@ namespace GameWork.Core.Audio.PlatformAdaptors
 
         void Stop();
 
-        void Sync();   
+        void Tick();   
     }
 }
