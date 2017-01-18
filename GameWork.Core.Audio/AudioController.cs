@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using GameWork.Core.Controllers;
 using GameWork.Core.Audio.Clip;
@@ -10,23 +11,23 @@ namespace GameWork.Core.Audio
 {
 	public class AudioController : Controller
 	{
-        private readonly float _volumeLowerLimit;
-        private readonly float _volumeUpperLimit;
+		private readonly float _volumeLowerLimit;
+		private readonly float _volumeUpperLimit;
 
 		private readonly IAudioChannel[] _channels;
-        private readonly List<IAudioFade> _activeAudioFades;
-        private readonly Dictionary<AudioClipModel, IAudioChannel> _occupiedChannels = new Dictionary<AudioClipModel, IAudioChannel>();
+		private readonly List<IAudioFade> _activeAudioFades;
+		private readonly Dictionary<AudioClipModel, IAudioChannel> _occupiedChannels = new Dictionary<AudioClipModel, IAudioChannel>();
 
-	    public AudioController(IAudioChannelFactory audioChannelFactory, int channelCount = 32, float volumeLowerLimit = 0, float volumeUpperLimit = 1)
-	    {
-	        _volumeLowerLimit = volumeLowerLimit;
-	        _volumeUpperLimit = volumeUpperLimit;
+		public AudioController(IAudioChannelFactory audioChannelFactory, int channelCount = 32, float volumeLowerLimit = 0, float volumeUpperLimit = 1)
+		{
+			_volumeLowerLimit = volumeLowerLimit;
+			_volumeUpperLimit = volumeUpperLimit;
 
-            _activeAudioFades = new List<IAudioFade>(channelCount);
-            _channels = InitializeChannels(audioChannelFactory, channelCount);
-        }
+			_activeAudioFades = new List<IAudioFade>(channelCount);
+			_channels = InitializeChannels(audioChannelFactory, channelCount);
+		}
 
-	    public override void Tick(float deltaTime)
+		public override void Tick(float deltaTime)
 		{
 			ProcessFades(deltaTime);
 			TickChannels();
@@ -44,25 +45,25 @@ namespace GameWork.Core.Audio
 			return isPlaying;
 		}
 
-	    public bool IsFading(AudioClipModel clip, float? targetVolume, float? duration)
-	    {
-	        var isFading = false;
+		public bool IsFading(AudioClipModel clip, float? targetVolume, float? duration)
+		{
+			var isFading = false;
 
-	        foreach (var fade in _activeAudioFades)
-	        {
-	            if (fade.Clip == clip
-                    && (targetVolume == null || fade.TargetVolume == targetVolume)
-	                && (duration == null || fade.Duration == duration))
-	            {
-	                isFading = true;
-	                break;
-	            }
-	        }
+			foreach (var fade in _activeAudioFades)
+			{
+				if (fade.Clip == clip
+					&& (targetVolume == null || fade.TargetVolume == targetVolume)
+					&& (duration == null || fade.Duration == duration))
+				{
+					isFading = true;
+					break;
+				}
+			}
 
-	        return isFading;
-	    }
+			return isFading;
+		}
 
-	    public bool TryGetVolume(AudioClipModel clip, out float volume)
+		public bool TryGetVolume(AudioClipModel clip, out float volume)
 		{
 			var success = false;
 			volume = 0f;
@@ -89,9 +90,9 @@ namespace GameWork.Core.Audio
 			return playbackTime;
 		}
 
-		public void Play(AudioClipModel clip, AudioClipModel master = null)
+		public void Play(AudioClipModel clip, AudioClipModel master = null, Action onComplete = null)
 		{
-			PlayInternal(clip, master);
+			PlayInternal(clip, master, onComplete);
 		}
 
 		public void Stop(AudioClipModel clip)
@@ -149,21 +150,21 @@ namespace GameWork.Core.Audio
 			}
 		}
 
-        public void Fade(AudioClipModel clip, params AudioFadeModel[] audioFades)
-        {
-            TryRemoveFade(clip);
-            var fade = new AudioMultiFade(clip, audioFades);
-            _activeAudioFades.Add(fade);
-        }
+		public void Fade(AudioClipModel clip, params AudioFadeModel[] audioFades)
+		{
+			TryRemoveFade(clip);
+			var fade = new AudioMultiFade(clip, audioFades);
+			_activeAudioFades.Add(fade);
+		}
 
-        private void AddFade(AudioClipModel clip, float startVolume, float endVolume, float duration)
+		private void AddFade(AudioClipModel clip, float startVolume, float endVolume, float duration)
 		{
 			TryRemoveFade(clip);
 			var fade = new AudioFade(clip, startVolume, endVolume, duration);
 			_activeAudioFades.Add(fade);
 		}
 
-        private bool TryGetChannel(AudioClipModel clip, out IAudioChannel channel)
+		private bool TryGetChannel(AudioClipModel clip, out IAudioChannel channel)
 		{
 			var didFindChannel = false;
 			channel = null;
@@ -182,7 +183,7 @@ namespace GameWork.Core.Audio
 			return didFindChannel;
 		}
 
-		private IAudioChannel PlayInternal(AudioClipModel clip, AudioClipModel master = null)
+		private IAudioChannel PlayInternal(AudioClipModel clip, AudioClipModel master = null, Action onComplete = null)
 		{
 			IAudioChannel channel;
 
@@ -202,11 +203,11 @@ namespace GameWork.Core.Audio
 				{
 					IAudioChannel masterChannel;
 					TryGetChannel(master, out masterChannel);
-					channel.Play(clip, masterChannel);
+					channel.Play(clip, masterChannel, onComplete);
 				}
 				else
 				{
-					channel.Play(clip);
+					channel.Play(clip, onComplete: onComplete);
 				}
 			}
 
@@ -238,22 +239,19 @@ namespace GameWork.Core.Audio
 
 		private void TickChannels()
 		{
-		    foreach (var channel in _channels)
-		    {
-		        if(channel.IsPlaying)
-		        {
-		            channel.Tick();
-		        }
-		    }
+			foreach (var channel in _channels)
+			{
+				channel.Tick();
+			}
 		}
 
-        private bool TryFindFreeChannel(out IAudioChannel freeChannel)
-        {
-            freeChannel = _channels.FirstOrDefault(c => !c.IsPlaying);
-            return freeChannel != null;
-        }
+		private bool TryFindFreeChannel(out IAudioChannel freeChannel)
+		{
+			freeChannel = _channels.FirstOrDefault(c => !c.IsPlaying);
+			return freeChannel != null;
+		}
 
-        private void ProcessFades(float deltaTime)
+		private void ProcessFades(float deltaTime)
 		{
 			for(var i = _activeAudioFades.Count - 1; 0 <= i; i--)
 			{
@@ -276,16 +274,16 @@ namespace GameWork.Core.Audio
 			}
 		}
 
-        private IAudioChannel[] InitializeChannels(IAudioChannelFactory factory, int channelCount)
-	    {
-            var channels = new IAudioChannel[channelCount];
+		private IAudioChannel[] InitializeChannels(IAudioChannelFactory factory, int channelCount)
+		{
+			var channels = new IAudioChannel[channelCount];
 
-	        for (var i = 0; i < channelCount; i++) 
-	        {
-	            channels[i] = factory.Create();
-	        }
+			for (var i = 0; i < channelCount; i++) 
+			{
+				channels[i] = factory.Create();
+			}
 
-	        return channels;
-	    }
+			return channels;
+		}
 	}
 }

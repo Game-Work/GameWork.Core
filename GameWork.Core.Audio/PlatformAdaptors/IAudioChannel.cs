@@ -13,7 +13,7 @@ namespace GameWork.Core.Audio.PlatformAdaptors
 
         float Volume { get; set; }
 
-        void Play(AudioClipModel clip, IAudioChannel master = null);
+        void Play(AudioClipModel clip, IAudioChannel master = null, Action onComplete = null);
 
         void Stop();
 
