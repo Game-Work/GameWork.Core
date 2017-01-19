@@ -13,12 +13,15 @@
 		
 		public override void EnterState(string toStateName)
 		{
-			if (ActiveStateName != null)
+			if (LastActiveStateName != null)
 			{
-				States[ActiveStateName].DisconnectTransisions(this);
+				States[LastActiveStateName].DisconnectTransisions(this);
 			}
 
-			States[toStateName].ConnectTransitions(this);
+			if (States.ContainsKey(toStateName))
+			{
+				States[toStateName].ConnectTransitions(this);
+			}
 
 			base.EnterState(toStateName);
 		}

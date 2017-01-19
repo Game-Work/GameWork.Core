@@ -18,10 +18,9 @@ namespace GameWork.Core.States.Tick
 		
 		public void Tick(float deltaTime)
 		{
-			States[ActiveStateName].TickTransitions(deltaTime);
-
 			if(!IsProcessingStateChange)
 			{
+				States[ActiveStateName].TickTransitions(deltaTime);
 				States[ActiveStateName].Tick(deltaTime);
 			}
 		}

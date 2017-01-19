@@ -5,6 +5,8 @@
 		public abstract string Name { get; }
 		
 		public bool IsActive { get; private set; }
+
+		protected StateControllerBase StateController { get; private set; }
 		
 		protected virtual void OnInitialize()
 		{
@@ -20,6 +22,11 @@
 
 		protected virtual void OnExit()
 		{
+		}
+
+		internal void SetStateController(StateControllerBase stateController)
+		{
+			StateController = stateController;
 		}
 
 		internal virtual void Initialize()

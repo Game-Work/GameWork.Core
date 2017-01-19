@@ -14,16 +14,18 @@ namespace GameWork.Core.States
 		where TState : State
 	{
 		protected readonly Dictionary<string, TState> States = new Dictionary<string, TState>();
-
+		
 		public string ActiveStateName { protected set; get; }
 
 		protected bool IsProcessingStateChange { get; set; }
+		protected string LastActiveStateName { get; set; }
 
 		public StateController(params TState[] states)
 		{
 			foreach (var state in states)
 			{
 				States.Add(state.Name, state);
+				state.SetStateController(this);
 			}
 		}
 
@@ -66,7 +68,9 @@ namespace GameWork.Core.States
 
 			if (ActiveStateName != null)
 			{
-				States[ActiveStateName].Exit(toStateName);
+				LastActiveStateName = ActiveStateName;
+				ActiveStateName = null;
+				States[LastActiveStateName].Exit(toStateName);
 			}
 		}
 
@@ -74,7 +78,7 @@ namespace GameWork.Core.States
 		{
 			if (States.ContainsKey(toStateName))
 			{
-				States[toStateName].Enter(ActiveStateName);
+				States[toStateName].Enter(LastActiveStateName);
 				ActiveStateName = toStateName;
 			}
 			else
