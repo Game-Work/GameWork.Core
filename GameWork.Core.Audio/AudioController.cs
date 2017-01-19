@@ -9,7 +9,7 @@ using GameWork.Core.Audio.PlatformAdaptors;
 
 namespace GameWork.Core.Audio
 {
-	public class AudioController : Controller
+	public class AudioController : TickController
 	{
 		private readonly float _volumeLowerLimit;
 		private readonly float _volumeUpperLimit;

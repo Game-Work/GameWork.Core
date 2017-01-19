@@ -13,10 +13,6 @@
 			IsActive = true;
 		}
 
-		public virtual void Tick(float deltaTime)
-		{
-		}
-
 		public virtual void Deactivate()
 		{
 			IsActive = false;
