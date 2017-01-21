@@ -20,7 +20,7 @@
 
 		public virtual void Terminate()
 		{
-			if(!IsActive)
+			if(IsActive)
 			{
 				Deactivate();
 			}
