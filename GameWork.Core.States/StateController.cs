@@ -72,6 +72,19 @@ namespace GameWork.Core.States
 				ActiveStateName = null;
 				States[LastActiveStateName].Exit(toStateName);
 			}
+
+			if (!States.ContainsKey(toStateName))
+			{
+				if (ParentController != null)
+				{
+					ParentController.ExitState(toStateName);
+				}
+				else
+				{
+					throw new ArgumentOutOfRangeException($"No state with the name: {toStateName} was found" +
+															$"There is also no parent {nameof(StateController)} set, which may also resolve the state change.");
+				}
+			}
 		}
 
 		public override void EnterState(string toStateName)
@@ -83,16 +96,7 @@ namespace GameWork.Core.States
 			}
 			else
 			{
-				if (ParentController != null)
-				{
-					ParentController.ExitState(toStateName);
-					ParentController.EnterState(toStateName);
-				}
-				else
-				{
-					throw new ArgumentOutOfRangeException($"No state with the name: {toStateName} was found" +
-														  $"There is also no parent {nameof(StateController)} set, which may also resolve the state change.");
-				}
+				ParentController.EnterState(toStateName);
 			}
 
 			IsProcessingStateChange = false;
