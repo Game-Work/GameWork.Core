@@ -17,12 +17,12 @@ namespace GameWork.Core.States.Event
 
 		protected virtual void EnterState(string toStateName)
 		{
-			EnterStateEvent(toStateName);
+			EnterStateEvent?.Invoke(toStateName);
 		}
 
 		protected virtual void ExitState(string toStateName)
 		{
-			ExitStateEvent(toStateName);
+			ExitStateEvent?.Invoke(toStateName);
 		}
 
 		internal virtual void Enter(string fromStateName)
