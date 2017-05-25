@@ -2,7 +2,10 @@
 
 namespace GameWork.Core.Audio.MultiClip
 {
-	public class MultiClipFactory
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public class MultiClipFactory
 	{
 		private readonly Dictionary<string, MultiClipModel> _models = new Dictionary<string, MultiClipModel>();
 

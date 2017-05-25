@@ -1,6 +1,9 @@
 ﻿namespace GameWork.Core.IO.PlatformAdaptors
 {
-	public interface ITextFileLoader : IFileLoader
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public interface ITextFileLoader : IFileLoader
 	{
 	}
 }

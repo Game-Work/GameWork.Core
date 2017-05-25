@@ -2,9 +2,12 @@
 
 namespace GameWork.Core.ObjectPool
 {
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
     public class PoolableObjectContainer<TObject> : IPoolableObject
     {
-        public TObject Object { get; private set; }
+        public TObject Object { get; }
 
         public bool IsTaken { get; private set;  }
 

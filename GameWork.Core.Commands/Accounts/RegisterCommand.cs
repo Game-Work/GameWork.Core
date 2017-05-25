@@ -3,6 +3,9 @@ using GameWork.Core.Commands.Interfaces;
 
 namespace GameWork.Core.Commands.Accounts
 {
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
     public class RegisterCommand : ICommand<IRegisterAction>
     {
         private readonly string _username;

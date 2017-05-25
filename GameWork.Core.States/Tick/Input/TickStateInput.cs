@@ -3,11 +3,17 @@ using GameWork.Core.States.Input;
 
 namespace GameWork.Core.States.Tick.Input
 {
-	public abstract class TickStateInput : TickStateInput<TickState>
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public abstract class TickStateInput : TickStateInput<TickState>
 	{
 	}
 
-	public abstract class TickStateInput<TState>  : StateInput<TState>
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public abstract class TickStateInput<TState>  : StateInput<TState>
 		where TState: TickState
 	{
 		protected ICommandQueueWrite CommandQueue;

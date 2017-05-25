@@ -3,7 +3,10 @@ using GameWork.Core.Utilities;
 
 namespace GameWork.Core.Audio.MultiClip
 {
-	public class MultiClip
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public class MultiClip
 	{
 		private readonly MultiClipModel _model;
 

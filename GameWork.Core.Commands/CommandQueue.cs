@@ -4,11 +4,17 @@ using GameWork.Core.Commands.Interfaces;
 
 namespace GameWork.Core.Commands
 {
-	public class CommandQueue : CommandQueue<ICommand>, ICommandQueue
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public class CommandQueue : CommandQueue<ICommand>, ICommandQueue
 	{
 	}
 
-	public class CommandQueue<TCommand> : ICommandQueue<TCommand>
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public class CommandQueue<TCommand> : ICommandQueue<TCommand>
 		where TCommand : ICommand
 	{
         private readonly List<TCommand> _commands = new List<TCommand>();

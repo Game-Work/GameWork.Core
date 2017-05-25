@@ -2,7 +2,10 @@
 
 namespace GameWork.Core.Factories
 {
-	public class SingleModelFactory<TCreate, TModel>
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public class SingleModelFactory<TCreate, TModel>
 	{
 		protected TModel Model;
 

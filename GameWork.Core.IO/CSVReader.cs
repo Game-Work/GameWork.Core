@@ -2,7 +2,10 @@
 
 namespace GameWork.Core.IO
 {
-	public class CSVReader
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public class CSVReader
 	{
 		private readonly StreamReader _reader;
 

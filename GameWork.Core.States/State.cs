@@ -1,6 +1,9 @@
 ﻿namespace GameWork.Core.States
 {
-	public abstract class State
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public abstract class State
 	{
 		public abstract string Name { get; }
 		

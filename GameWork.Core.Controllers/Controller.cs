@@ -1,6 +1,9 @@
 ﻿namespace GameWork.Core.Controllers
 {
-	public abstract class Controller
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public abstract class Controller
 	{
 		public virtual bool IsActive { get; private set; }
 

@@ -2,7 +2,10 @@
 
 namespace GameWork.Core.Audio.Fade
 {
-	public class AudioFadeModel : IModel
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public class AudioFadeModel : IModel
     {
 		public float StartVolume { get; set; }
 

@@ -2,14 +2,20 @@
 
 namespace GameWork.Core.States.Event.Input
 {
-	public abstract class InputEventState : InputEventState<StateInput>
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public abstract class InputEventState : InputEventState<StateInput>
 	{
 		protected InputEventState(StateInput stateInput) : base(stateInput)
 		{
 		}
 	}
 
-	public abstract class InputEventState<TStateInput> : EventState
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public abstract class InputEventState<TStateInput> : EventState
 		where TStateInput : StateInput
 	{
 		internal readonly TStateInput StateInput;

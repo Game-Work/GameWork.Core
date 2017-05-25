@@ -2,7 +2,10 @@
 
 namespace GameWork.Core.IO.PlatformAdaptors
 {
-	public interface IFileLoader
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public interface IFileLoader
 	{
 		Stream Load(string path);
 	}

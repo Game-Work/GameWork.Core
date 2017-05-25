@@ -1,6 +1,9 @@
 ﻿namespace GameWork.Core.Math.Types
 {
-	public struct Vector3
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public struct Vector3
 	{
 		public float X { get; set; }
 

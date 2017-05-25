@@ -2,7 +2,10 @@
 
 namespace GameWork.Core.States.Tick
 {
-	public abstract class TickStateTransition : EventStateTransition
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public abstract class TickStateTransition : EventStateTransition
 	{
 		private bool _didChangeState;
 		protected abstract void OnTick(float deltaTime);

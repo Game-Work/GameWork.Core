@@ -2,7 +2,10 @@
 
 namespace GameWork.Core.Audio.Fade.Interfaces
 {
-	public interface IAudioFade
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public interface IAudioFade
 	{
 	    AudioClipModel Clip { get; }
 

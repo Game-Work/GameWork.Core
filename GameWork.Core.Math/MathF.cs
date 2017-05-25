@@ -1,6 +1,9 @@
 ﻿namespace GameWork.Core.Math
 {
-	public static class MathF
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public static class MathF
 	{
 		public static float Lerp(float start, float end, float weight)
 		{

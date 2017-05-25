@@ -3,14 +3,20 @@ using GameWork.Core.Commands.Interfaces;
 
 namespace GameWork.Core.States.Tick.Input
 {
-	public abstract class InputTickState : InputTickState<TickStateInput>
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public abstract class InputTickState : InputTickState<TickStateInput>
 	{
 		protected InputTickState(TickStateInput tickStateInput) : base(tickStateInput)
 		{
 		}
 	}
 
-	public abstract class InputTickState<TStateInput> : TickState
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public abstract class InputTickState<TStateInput> : TickState
 		where TStateInput : TickStateInput
 	{
 		private readonly ICommandQueue _commandQueue;

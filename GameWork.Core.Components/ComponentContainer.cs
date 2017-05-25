@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using GameWork.Core.Components.Interfaces;
+using System.Reflection;
 
 namespace GameWork.Core.Components
 {
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
     public class ComponentContainer
     {
         private readonly Dictionary<Type, IComponent> Components = new Dictionary<Type, IComponent>();

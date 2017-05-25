@@ -3,14 +3,20 @@ using System.Collections.Generic;
 
 namespace GameWork.Core.States
 {
-	public class StateController : StateController<State>
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public class StateController : StateController<State>
 	{
 		public StateController(params State[] states) : base(states)
 		{
 		}
 	}
 
-	public class StateController<TState> : StateControllerBase
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public class StateController<TState> : StateControllerBase
 		where TState : State
 	{
 		protected readonly Dictionary<string, TState> States = new Dictionary<string, TState>();

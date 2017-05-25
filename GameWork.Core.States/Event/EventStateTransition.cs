@@ -2,7 +2,10 @@
 
 namespace GameWork.Core.States.Event
 {
-	public abstract class EventStateTransition
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public abstract class EventStateTransition
 	{
 		internal event Action<string> EnterStateEvent;
 		internal event Action<string> ExitStateEvent;

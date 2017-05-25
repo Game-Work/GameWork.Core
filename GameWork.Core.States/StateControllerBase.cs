@@ -1,5 +1,8 @@
 ﻿namespace GameWork.Core.States
 {
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
 	public abstract class StateControllerBase
 	{
 		protected StateControllerBase ParentController;

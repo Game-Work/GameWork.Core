@@ -2,6 +2,9 @@
 
 namespace GameWork.Core.Logging.PlatformAdaptors
 {
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
     public interface ILogger
     {
         /// <summary>

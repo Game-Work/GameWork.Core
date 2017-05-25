@@ -1,10 +1,16 @@
 ﻿namespace GameWork.Core.States.Input
 {
-	public class StateInput : StateInput<State>
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public class StateInput : StateInput<State>
 	{
 	}
-	
-	public class StateInput<TState>
+
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public class StateInput<TState>
 		where TState : State
 	{
 		protected TState State { get; private set; }

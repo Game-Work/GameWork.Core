@@ -3,6 +3,9 @@ using GameWork.Core.Logging.PlatformAdaptors;
 
 namespace GameWork.Core.Logging
 {
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
     public class LogUtil
     {
         private static ILogger _logger;

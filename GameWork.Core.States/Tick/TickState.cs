@@ -3,7 +3,10 @@ using GameWork.Core.States.Event;
 
 namespace GameWork.Core.States.Tick
 {
-	public abstract class TickState : EventState
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public abstract class TickState : EventState
 	{
 		private readonly List<TickStateTransition> _transitions = new List<TickStateTransition>();
 

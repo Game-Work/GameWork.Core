@@ -3,11 +3,17 @@ using GameWork.Core.Commands.Interfaces;
 
 namespace GameWork.Core.Commands
 {
-	public abstract class CommandResolver : CommandResolver<ICommand>
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public abstract class CommandResolver : CommandResolver<ICommand>
 	{
 	}
 
-	public abstract class CommandResolver<TCommand> : ICommandResolver<TCommand>
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public abstract class CommandResolver<TCommand> : ICommandResolver<TCommand>
 		where TCommand : ICommand
 	{
 		public abstract void ProcessCommand(TCommand command);

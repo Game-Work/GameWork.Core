@@ -4,6 +4,9 @@ using GameWork.Core.Models.Interfaces;
 
 namespace GameWork.Core.Factories
 {
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
     public class MultipleModelFactory<TObject, TModel>
         where TModel : IIdModel
     {

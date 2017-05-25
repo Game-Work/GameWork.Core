@@ -4,6 +4,9 @@ using GameWork.Core.IO;
 
 namespace GameWork.Core.Localization
 {
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
     public class LocalizationLoader
     {
         public LocalizationModel Load(Stream stream)

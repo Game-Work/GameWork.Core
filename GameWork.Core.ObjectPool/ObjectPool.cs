@@ -4,10 +4,16 @@ using GameWork.Core.ObjectPool.Interfaces;
 
 namespace GameWork.Core.ObjectPool
 {
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
     public class ObjectPool : ObjectPool<IPoolableObject>
     {   
     }
 
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
     public class ObjectPool<TPoolableObject> where TPoolableObject : IPoolableObject
     {
         protected readonly List<TPoolableObject> PoolableObjects = new List<TPoolableObject>();

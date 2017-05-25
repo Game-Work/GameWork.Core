@@ -2,10 +2,16 @@
 
 namespace GameWork.Core.Commands.Interfaces
 {
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
     public interface ICommandQueueTake : ICommandQueueTake<ICommand>
     {
     }
 
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
     public interface ICommandQueueTake<TCommand>
         where TCommand : ICommand
     {

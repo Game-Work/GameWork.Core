@@ -2,7 +2,10 @@
 
 namespace GameWork.Core.States.Event
 {
-	public abstract class EventState : State
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public abstract class EventState : State
 	{
 		private readonly List<EventStateTransition> _transitions = new List<EventStateTransition>();
 

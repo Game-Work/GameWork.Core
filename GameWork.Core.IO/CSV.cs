@@ -1,6 +1,9 @@
 ﻿namespace GameWork.Core.IO
 {
-	public static class CSV
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public static class CSV
 	{
 		private const char Delimiter = ',';
 

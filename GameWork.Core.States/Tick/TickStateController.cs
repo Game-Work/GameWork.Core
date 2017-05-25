@@ -2,14 +2,20 @@
 
 namespace GameWork.Core.States.Tick
 {
-	public class TickStateController : TickStateController<TickState>
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public class TickStateController : TickStateController<TickState>
 	{
 		public TickStateController(params TickState[] states) : base(states)
 		{
 		}
 	}
 
-	public class TickStateController<TTickState> : EventStateController<TTickState>
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public class TickStateController<TTickState> : EventStateController<TTickState>
 		where TTickState : TickState
 	{
 		public TickStateController(params TTickState[] states) : base(states)

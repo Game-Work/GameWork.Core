@@ -5,7 +5,10 @@ using GameWork.Core.Audio.Clip;
 
 namespace GameWork.Core.Audio.Fade
 {
-	public class AudioMultiFade : IAudioFade
+    /// <summary>
+    /// Todo: Please contact us if you see this message
+    /// </summary>
+    public class AudioMultiFade : IAudioFade
 	{
 	    private readonly AudioFadeModel[] _audioFadeModels;
         private AudioFadeModel _currentModel;
