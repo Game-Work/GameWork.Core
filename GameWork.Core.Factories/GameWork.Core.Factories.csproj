@@ -4,6 +4,10 @@
     <TargetFrameworks>netcoreapp1.1;net35</TargetFrameworks>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <OutputPath>C:\Work\Projects\GameWork.Unity\GameWork.Core\bin</OutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\GameWork.Core.Models\GameWork.Core.Models.csproj" />
   </ItemGroup>
