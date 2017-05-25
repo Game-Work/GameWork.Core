@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using GameWork.Core.Components.Interfaces;
+using System.Reflection;
 
 namespace GameWork.Core.Components
 {

@@ -1,21 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using GameWork.Core.Logging.PlatformAdaptors;
 
 namespace GameWork.Core.Localization
 {
     public class LocalizationManager
     {
-        private readonly ILogger _logger;
         private LocalizationModel _model;
         private Dictionary<string, string> _currentLocalization;
 
         public event Action SetLocaleEvent;
-
-        public LocalizationManager(ILogger logger)
-        {
-            _logger = logger;
-        }
 
         public void SetModel(LocalizationModel model)
         {
@@ -27,21 +20,14 @@ namespace GameWork.Core.Localization
         {
             _currentLocalization = _model.Localizations[localeId];
 
-            if (SetLocaleEvent != null)
-            {
-                SetLocaleEvent();
-            }
+            SetLocaleEvent?.Invoke();
         }
 
         public string GetLocalization(string id)
         {
-            if (!_currentLocalization.ContainsKey(id))
-            {
-                _logger.Error("Localization doesn't contain key for: \"" + id + "\"");
-                return string.Empty;
-            }
-
-            return _currentLocalization[id];
+            string value = null;
+            _currentLocalization?.TryGetValue(id, out value);
+            return value;
         }
 
         public bool HasLocale(string locale)
