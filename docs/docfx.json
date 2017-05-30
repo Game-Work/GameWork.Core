@@ -3,15 +3,18 @@
     {
       "src": [
         {
-        	"src": "../",
+        	"cwd": "../",
           "files": [
-            "**/**.csproj"
+            "**/*.csproj"
           ],
           "exclude": [
             "**/obj/**",
             "**/bin/**",
-            "docfx_project/**",
-            "**/*.Tests/**"
+            "**/docfx_project/**",
+            "**/*.Tests/**",
+            "**/*.Tests",
+            "**/*.Tests.*",
+            "**/*.Tests.csproj"
           ]
         }
       ],
